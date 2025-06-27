@@ -1,0 +1,20 @@
+--extra-index-url https://download.pytorch.org/whl/cu124
+--find-links https://unsloth.ai/whl/torch250cu124.html
+
+
+unsloth
+git+https://github.com/unslothai/unsloth_zoo.git
+vllm==0.7.3
+torch
+
+requests>=2.32.2
+pyswip>=0.2.10
+accelerate>=0.21.0
+bitsandbytes>=0.41.0
+huggingface-hub[hf_xet]==0.32.0
+matplotlib
+seaborn
+wandb==0.16.6
+trl==0.15.2
+numpy==1.26.4
+openai

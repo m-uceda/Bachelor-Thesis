@@ -1,0 +1,1220 @@
+Tue Jun 17 09:10:05 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.05              Driver Version: 560.35.05      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  |   00000000:65:00.0 Off |                    0 |
+| N/A   32C    P0             35W /  250W |       1MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+INFO 06-17 09:13:54 __init__.py:207] Automatically detected platform cuda.
+[W617 09:14:08.931265741 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+==((====))==  Unsloth 2025.6.2: Fast Llama patching. Transformers: 4.52.4. vLLM: 0.7.3.
+   \\   /|    NVIDIA A100-PCIE-40GB. Num GPUs = 1. Max memory: 39.496 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.5.1+cu124. CUDA: 8.0. CUDA Toolkit: 12.4. Triton: 3.1.0
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.28.post3. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: vLLM loading unsloth/Llama-3.2-3B-Instruct with actual GPU utilization = 59.31%
+Unsloth: Your GPU has CUDA compute capability 8.0 with VRAM = 39.5 GB.
+Unsloth: Using conservativeness = 1.0. Chunked prefill tokens = 4024. Num Sequences = 288.
+Unsloth: vLLM's KV Cache can use up to 17.26 GB. Also swap space = 6 GB.
+INFO 06-17 09:14:38 config.py:549] This model supports multiple tasks: {'embed', 'classify', 'generate', 'reward', 'score'}. Defaulting to 'generate'.
+WARNING 06-17 09:14:38 cuda.py:95] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 06-17 09:14:38 llm_engine.py:234] Initializing a V0 LLM engine (v0.7.3) with config: model='unsloth/Llama-3.2-3B-Instruct', speculative_config=None, tokenizer='unsloth/Llama-3.2-3B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4024, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda:0, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=unsloth/Llama-3.2-3B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"level":0,"backend":"inductor","splitting_ops":[],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"debug":false,"dce":true,"coordinate_descent_tuning":true,"trace.enabled":false,"trace.graph_diagram":false,"triton.cudagraphs":true,"compile_threads":48,"max_autotune":false,"disable_progress":false,"verbose_progress":true},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 06-17 09:14:41 cuda.py:229] Using Flash Attention backend.
+INFO 06-17 09:14:42 model_runner.py:1110] Starting to load model unsloth/Llama-3.2-3B-Instruct...
+INFO 06-17 09:14:44 weight_utils.py:254] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:06<00:06,  6.67s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:08<00:00,  3.92s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:08<00:00,  4.33s/it]
+
+INFO 06-17 09:14:53 model_runner.py:1115] Loading model weights took 6.0316 GB
+INFO 06-17 09:14:54 punica_selector.py:18] Using PunicaWrapperGPU.
+INFO 06-17 09:15:03 worker.py:267] Memory profiling takes 8.57 seconds
+INFO 06-17 09:15:03 worker.py:267] the current vLLM instance can use total_gpu_memory (39.50GiB) x gpu_memory_utilization (0.59) = 23.43GiB
+INFO 06-17 09:15:03 worker.py:267] model weights take 6.03GiB; non_torch_memory takes 0.09GiB; PyTorch activation peak memory takes 1.35GiB; the rest of the memory reserved for KV Cache is 15.95GiB.
+INFO 06-17 09:15:03 executor_base.py:111] # cuda blocks: 9333, # CPU blocks: 3510
+INFO 06-17 09:15:03 executor_base.py:116] Maximum concurrency for 4024 tokens per request: 37.11x
+INFO 06-17 09:15:05 llm_engine.py:436] init engine (profile, create kv cache, warmup model) took 11.48 seconds
+Unsloth: Just some info: will skip parsing ['post_feedforward_layernorm', 'pre_feedforward_layernorm', 'q_norm', 'k_norm']
+Unsloth: Just some info: will skip parsing ['post_feedforward_layernorm', 'pre_feedforward_layernorm', 'q_norm', 'k_norm']
+Unsloth 2025.6.2 patched 28 layers with 28 QKV layers, 28 O layers and 28 MLP layers.
+Dataset distribution:
+----------------------------------------
+Problem Type   Train     Test      Total     Train %   
+----------------------------------------
+3-option       136       34        170       80.0%
+5-option       136       34        170       80.0%
+7-option       136       34        170       80.0%
+----------------------------------------
+Overall        408       102       510       80.0%
+Processing method: prolog_no_fs
+Processing sample logical_deduction_86 (iteration 0) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:21<00:00, 21.37s/it, est. speed input: 31.27 toks/s, output: 22.47 toks/s]Processed prompts: 100%|██████████| 1/1 [00:21<00:00, 21.37s/it, est. speed input: 31.27 toks/s, output: 22.47 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_86 (iteration 0) for method prolog_no_fs
+Processing sample logical_deduction_154 (iteration 1) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.24s/it, est. speed input: 33.25 toks/s, output: 23.66 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.24s/it, est. speed input: 33.25 toks/s, output: 23.66 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_154 (iteration 1) for method prolog_no_fs
+Processing sample logical_deduction_39 (iteration 2) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.42s/it, est. speed input: 33.30 toks/s, output: 23.95 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.42s/it, est. speed input: 33.30 toks/s, output: 23.95 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_39 (iteration 2) for method prolog_no_fs
+Processing sample logical_deduction_144 (iteration 3) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.21s/it, est. speed input: 33.50 toks/s, output: 23.95 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.21s/it, est. speed input: 33.50 toks/s, output: 23.95 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_144 (iteration 3) for method prolog_no_fs
+Processing sample logical_deduction_87 (iteration 4) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [02:17<00:00, 137.38s/it, est. speed input: 4.94 toks/s, output: 24.36 toks/s]Processed prompts: 100%|██████████| 1/1 [02:17<00:00, 137.38s/it, est. speed input: 4.94 toks/s, output: 24.36 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+Warning:    Singleton variables: [Solution,Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Answer]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:205:24: Syntax error: Unexpected end of file
+Prolog output: Error: Caused by: 'solve(Answer)'. Returned: 'error(existence_error(procedure, /(nth1, 5)), context(/(solve, 1), _46))'.
+Completed sample logical_deduction_87 (iteration 4) for method prolog_no_fs
+Processing sample logical_deduction_158 (iteration 5) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]generate_prolog failed for sample logical_deduction_158: 
+Traceback (most recent call last):
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 450, in get_method_results
+    output, code, result = generate_prolog(sample, model, tokenizer, sampling_params, grpo, lora_path)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 586, in generate_prolog
+    output = generate(model, tokenizer, sample["prompt"], sampling_params, use_lora, lora_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 580, in generate
+    return model.fast_generate(text, sampling_params=sampling_params,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/utils.py", line 1057, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 469, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 1397, in _run_engine
+    step_outputs = self.llm_engine.step()
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 1391, in step
+    outputs = self.model_executor.execute_model(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/executor/executor_base.py", line 139, in execute_model
+    output = self.collective_rpc("execute_model",
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/executor/uniproc_executor.py", line 56, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/utils.py", line 2196, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/worker/worker_base.py", line 420, in execute_model
+    output = self.model_runner.execute_model(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/worker/model_runner.py", line 1724, in execute_model
+    hidden_or_intermediate_states = model_executable(
+                                    ^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 547, in forward
+    model_output = self.model(input_ids, positions, kv_caches,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/compilation/decorators.py", line 172, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 368, in forward
+    hidden_states, residual = layer(positions, hidden_states,
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 290, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 90, in forward
+    x, _ = self.gate_up_proj(x)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/layers.py", line 523, in forward
+    output_parallel = self.apply(input_, bias)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/layers.py", line 398, in apply
+    self.punica_wrapper.add_lora_linear(output, x, self.lora_a_stacked,
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/punica_wrapper/punica_gpu.py", line 266, in add_lora_linear
+    self.add_expand(y,
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/punica_wrapper/punica_gpu.py", line 173, in add_expand
+    self._apply_expand_decode(
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/punica_wrapper/punica_gpu.py", line 95, in _apply_expand_decode
+    bgmv_expand_slice(x, w_t_all, y, self.token_lora_indices, y_offset,
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/_ops.py", line 1116, in __call__
+    return self._op(*args, **(kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/ops/triton_ops/bgmv_expand_slice.py", line 161, in _bgmv_expand_slice
+    _bgmv_expand_slice_kernel[grid](
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/triton/runtime/jit.py", line 345, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/triton/runtime/jit.py", line 618, in run
+    bound_args, sig_and_spec, constexpr_vals, non_constexpr_vals, excess_kwargs = self.binder(*args, **kwargs)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in dynamic_func
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/triton/runtime/jit.py", line 295, in compute_spec_key
+    def compute_spec_key(v):
+    
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 824, in timeout_handler
+    raise TimeoutException()
+utils_exp.TimeoutException
+Error processing sample logical_deduction_158 (iteration 5) for method prolog_no_fs: 
+Traceback (most recent call last):
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 450, in get_method_results
+    output, code, result = generate_prolog(sample, model, tokenizer, sampling_params, grpo, lora_path)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 586, in generate_prolog
+    output = generate(model, tokenizer, sample["prompt"], sampling_params, use_lora, lora_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 580, in generate
+    return model.fast_generate(text, sampling_params=sampling_params,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/utils.py", line 1057, in inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 469, in generate
+    outputs = self._run_engine(use_tqdm=use_tqdm)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 1397, in _run_engine
+    step_outputs = self.llm_engine.step()
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 1391, in step
+    outputs = self.model_executor.execute_model(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/executor/executor_base.py", line 139, in execute_model
+    output = self.collective_rpc("execute_model",
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/executor/uniproc_executor.py", line 56, in collective_rpc
+    answer = run_method(self.driver_worker, method, args, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/utils.py", line 2196, in run_method
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/worker/worker_base.py", line 420, in execute_model
+    output = self.model_runner.execute_model(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/worker/model_runner.py", line 1724, in execute_model
+    hidden_or_intermediate_states = model_executable(
+                                    ^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 547, in forward
+    model_output = self.model(input_ids, positions, kv_caches,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/compilation/decorators.py", line 172, in __call__
+    return self.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 368, in forward
+    hidden_states, residual = layer(positions, hidden_states,
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 290, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/model_executor/models/llama.py", line 90, in forward
+    x, _ = self.gate_up_proj(x)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/layers.py", line 523, in forward
+    output_parallel = self.apply(input_, bias)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/layers.py", line 398, in apply
+    self.punica_wrapper.add_lora_linear(output, x, self.lora_a_stacked,
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/punica_wrapper/punica_gpu.py", line 266, in add_lora_linear
+    self.add_expand(y,
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/punica_wrapper/punica_gpu.py", line 173, in add_expand
+    self._apply_expand_decode(
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/punica_wrapper/punica_gpu.py", line 95, in _apply_expand_decode
+    bgmv_expand_slice(x, w_t_all, y, self.token_lora_indices, y_offset,
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/_ops.py", line 1116, in __call__
+    return self._op(*args, **(kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/vllm/lora/ops/triton_ops/bgmv_expand_slice.py", line 161, in _bgmv_expand_slice
+    _bgmv_expand_slice_kernel[grid](
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/triton/runtime/jit.py", line 345, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/triton/runtime/jit.py", line 618, in run
+    bound_args, sig_and_spec, constexpr_vals, non_constexpr_vals, excess_kwargs = self.binder(*args, **kwargs)
+                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in dynamic_func
+  File "/scratch/s5112583/thesis/RL/small/projectEnvironment/lib/python3.11/site-packages/triton/runtime/jit.py", line 295, in compute_spec_key
+    def compute_spec_key(v):
+    
+  File "/scratch/s5112583/thesis/RL/small/utils_exp.py", line 824, in timeout_handler
+    raise TimeoutException()
+utils_exp.TimeoutException
+Processed prompts:   0%|          | 0/1 [00:20<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+Processing sample logical_deduction_40 (iteration 6) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/2 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:  50%|█████     | 1/2 [00:00<00:00,  1.53it/s, est. speed input: 1030.74 toks/s, output: 749.33 toks/s]Processed prompts: 100%|██████████| 2/2 [00:19<00:00, 11.50s/it, est. speed input: 67.89 toks/s, output: 48.69 toks/s]   Processed prompts: 100%|██████████| 2/2 [00:19<00:00,  9.87s/it, est. speed input: 67.89 toks/s, output: 48.69 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_40 (iteration 6) for method prolog_no_fs
+Processing sample logical_deduction_1 (iteration 7) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.55s/it, est. speed input: 34.63 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.55s/it, est. speed input: 34.63 toks/s, output: 24.35 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_1 (iteration 7) for method prolog_no_fs
+Processing sample logical_deduction_71 (iteration 8) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.70s/it, est. speed input: 32.71 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.70s/it, est. speed input: 32.71 toks/s, output: 24.35 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_71 (iteration 8) for method prolog_no_fs
+Processing sample logical_deduction_114 (iteration 9) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.37s/it, est. speed input: 33.53 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.37s/it, est. speed input: 33.53 toks/s, output: 24.35 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_114 (iteration 9) for method prolog_no_fs
+Processing sample logical_deduction_56 (iteration 10) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.35s/it, est. speed input: 36.25 toks/s, output: 24.38 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.35s/it, est. speed input: 36.25 toks/s, output: 24.38 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_56 (iteration 10) for method prolog_no_fs
+Processing sample logical_deduction_107 (iteration 11) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.91s/it, est. speed input: 36.01 toks/s, output: 24.33 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.91s/it, est. speed input: 36.01 toks/s, output: 24.33 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_107 (iteration 11) for method prolog_no_fs
+Processing sample logical_deduction_161 (iteration 12) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.80s/it, est. speed input: 40.50 toks/s, output: 24.36 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.80s/it, est. speed input: 40.50 toks/s, output: 24.36 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_161 (iteration 12) for method prolog_no_fs
+Processing sample logical_deduction_50 (iteration 13) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.86s/it, est. speed input: 49.66 toks/s, output: 24.40 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.86s/it, est. speed input: 49.66 toks/s, output: 24.40 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:10:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:17:
+Warning:    Singleton variables: [X]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:17:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:18:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_50 (iteration 13) for method prolog_no_fs
+Processing sample logical_deduction_143 (iteration 14) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.39s/it, est. speed input: 58.65 toks/s, output: 24.41 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.39s/it, est. speed input: 58.65 toks/s, output: 24.41 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Prolog output: A
+Completed sample logical_deduction_143 (iteration 14) for method prolog_no_fs
+Processing sample logical_deduction_167 (iteration 15) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.09s/it, est. speed input: 35.55 toks/s, output: 24.38 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.09s/it, est. speed input: 35.55 toks/s, output: 24.38 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_167 (iteration 15) for method prolog_no_fs
+Processing sample logical_deduction_129 (iteration 16) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.55s/it, est. speed input: 34.13 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.55s/it, est. speed input: 34.13 toks/s, output: 24.35 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_129 (iteration 16) for method prolog_no_fs
+Processing sample logical_deduction_59 (iteration 17) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.96s/it, est. speed input: 34.02 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.96s/it, est. speed input: 34.02 toks/s, output: 24.35 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_59 (iteration 17) for method prolog_no_fs
+Processing sample logical_deduction_55 (iteration 18) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.51s/it, est. speed input: 34.23 toks/s, output: 24.34 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.51s/it, est. speed input: 34.23 toks/s, output: 24.34 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_55 (iteration 18) for method prolog_no_fs
+Processing sample logical_deduction_23 (iteration 19) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.76s/it, est. speed input: 33.80 toks/s, output: 24.34 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.76s/it, est. speed input: 33.80 toks/s, output: 24.34 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_23 (iteration 19) for method prolog_no_fs
+Processing sample logical_deduction_7 (iteration 20) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.60s/it, est. speed input: 37.78 toks/s, output: 24.40 toks/s]Processed prompts: 100%|██████████| 1/1 [00:16<00:00, 16.60s/it, est. speed input: 37.78 toks/s, output: 24.40 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_7 (iteration 20) for method prolog_no_fs
+Processing sample logical_deduction_8 (iteration 21) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.12s/it, est. speed input: 37.64 toks/s, output: 24.34 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.12s/it, est. speed input: 37.64 toks/s, output: 24.34 toks/s]
+Prolog output: Error (timeout)
+Completed sample logical_deduction_8 (iteration 21) for method prolog_no_fs
+Processing sample logical_deduction_108 (iteration 22) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.12s/it, est. speed input: 33.79 toks/s, output: 24.25 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.12s/it, est. speed input: 33.79 toks/s, output: 24.25 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_108 (iteration 22) for method prolog_no_fs
+Processing sample logical_deduction_151 (iteration 23) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.19s/it, est. speed input: 59.43 toks/s, output: 24.22 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.19s/it, est. speed input: 59.43 toks/s, output: 24.22 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Prolog output: A
+Completed sample logical_deduction_151 (iteration 23) for method prolog_no_fs
+Processing sample logical_deduction_22 (iteration 24) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.47s/it, est. speed input: 35.95 toks/s, output: 24.27 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.47s/it, est. speed input: 35.95 toks/s, output: 24.27 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_22 (iteration 24) for method prolog_no_fs
+Processing sample logical_deduction_139 (iteration 25) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.39s/it, est. speed input: 32.96 toks/s, output: 24.23 toks/s]Processed prompts: 100%|██████████| 1/1 [00:20<00:00, 20.39s/it, est. speed input: 32.96 toks/s, output: 24.23 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_139 (iteration 25) for method prolog_no_fs
+Processing sample logical_deduction_26 (iteration 26) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.15s/it, est. speed input: 41.38 toks/s, output: 24.29 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.15s/it, est. speed input: 41.38 toks/s, output: 24.29 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_26 (iteration 26) for method prolog_no_fs
+Processing sample logical_deduction_35 (iteration 27) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.79s/it, est. speed input: 34.86 toks/s, output: 24.25 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.79s/it, est. speed input: 34.86 toks/s, output: 24.25 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_35 (iteration 27) for method prolog_no_fs
+Processing sample logical_deduction_57 (iteration 28) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.75s/it, est. speed input: 34.28 toks/s, output: 24.25 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.75s/it, est. speed input: 34.28 toks/s, output: 24.25 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_57 (iteration 28) for method prolog_no_fs
+Processing sample logical_deduction_62 (iteration 29) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.36s/it, est. speed input: 55.84 toks/s, output: 24.28 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.36s/it, est. speed input: 55.84 toks/s, output: 24.28 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer,Solution]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:8:
+Warning:    Singleton variables: [Answer]
+Prolog output: _3222
+Completed sample logical_deduction_62 (iteration 29) for method prolog_no_fs
+Processing sample logical_deduction_70 (iteration 30) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.11s/it, est. speed input: 56.14 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.11s/it, est. speed input: 56.14 toks/s, output: 24.35 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:15:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_70 (iteration 30) for method prolog_no_fs
+Processing sample logical_deduction_6 (iteration 31) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.64s/it, est. speed input: 35.20 toks/s, output: 24.30 toks/s]Processed prompts: 100%|██████████| 1/1 [00:18<00:00, 18.64s/it, est. speed input: 35.20 toks/s, output: 24.30 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_6 (iteration 31) for method prolog_no_fs
+Processing sample logical_deduction_28 (iteration 32) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.51s/it, est. speed input: 35.81 toks/s, output: 24.27 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.51s/it, est. speed input: 35.81 toks/s, output: 24.27 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_28 (iteration 32) for method prolog_no_fs
+Processing sample logical_deduction_163 (iteration 33) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.49s/it, est. speed input: 35.91 toks/s, output: 24.31 toks/s]Processed prompts: 100%|██████████| 1/1 [00:17<00:00, 17.49s/it, est. speed input: 35.91 toks/s, output: 24.31 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_163 (iteration 33) for method prolog_no_fs
+Processing sample logical_deduction_495 (iteration 34) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:27<00:00, 27.86s/it, est. speed input: 25.80 toks/s, output: 24.26 toks/s]Processed prompts: 100%|██████████| 1/1 [00:27<00:00, 27.86s/it, est. speed input: 25.80 toks/s, output: 24.26 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_495 (iteration 34) for method prolog_no_fs
+Processing sample logical_deduction_502 (iteration 35) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.39s/it, est. speed input: 48.48 toks/s, output: 24.24 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.39s/it, est. speed input: 48.48 toks/s, output: 24.24 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Prolog output: A
+Completed sample logical_deduction_502 (iteration 35) for method prolog_no_fs
+Processing sample logical_deduction_479 (iteration 36) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.81s/it, est. speed input: 52.70 toks/s, output: 24.25 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.81s/it, est. speed input: 52.70 toks/s, output: 24.25 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+Warning:    Singleton variables: [Solution,Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Answer]
+Prolog output: _2328
+Completed sample logical_deduction_479 (iteration 36) for method prolog_no_fs
+Processing sample logical_deduction_451 (iteration 37) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.82s/it, est. speed input: 28.57 toks/s, output: 24.32 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.82s/it, est. speed input: 28.57 toks/s, output: 24.32 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_451 (iteration 37) for method prolog_no_fs
+Processing sample logical_deduction_568 (iteration 38) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.84s/it, est. speed input: 27.12 toks/s, output: 24.22 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.84s/it, est. speed input: 27.12 toks/s, output: 24.22 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_568 (iteration 38) for method prolog_no_fs
+Processing sample logical_deduction_454 (iteration 39) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.71s/it, est. speed input: 28.75 toks/s, output: 24.26 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.71s/it, est. speed input: 28.75 toks/s, output: 24.26 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_454 (iteration 39) for method prolog_no_fs
+Processing sample logical_deduction_508 (iteration 40) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.90s/it, est. speed input: 41.07 toks/s, output: 24.27 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.90s/it, est. speed input: 41.07 toks/s, output: 24.27 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer,S]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:5:
+Warning:    Singleton variables: [Solution,S]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:5:
+ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:7:
+Warning:    Singleton variables: [Solution,S]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:7:
+ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+Warning:    Singleton variables: [Solution,S]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Solution,S]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:13:
+Warning:    Singleton variables: [Solution,S]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:13:
+ERROR:    Full stop in clause-body?  Cannot redefine ,/2
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:15:
+Warning:    Singleton variables: [S,Answer]
+Prolog output: _15616
+Completed sample logical_deduction_508 (iteration 40) for method prolog_no_fs
+Processing sample logical_deduction_567 (iteration 41) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:23<00:00, 23.28s/it, est. speed input: 28.53 toks/s, output: 24.27 toks/s]Processed prompts: 100%|██████████| 1/1 [00:23<00:00, 23.28s/it, est. speed input: 28.53 toks/s, output: 24.27 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_567 (iteration 41) for method prolog_no_fs
+Processing sample logical_deduction_467 (iteration 42) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:23<00:00, 23.14s/it, est. speed input: 28.35 toks/s, output: 24.24 toks/s]Processed prompts: 100%|██████████| 1/1 [00:23<00:00, 23.14s/it, est. speed input: 28.35 toks/s, output: 24.24 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_467 (iteration 42) for method prolog_no_fs
+Processing sample logical_deduction_442 (iteration 43) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.05s/it, est. speed input: 27.18 toks/s, output: 24.23 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.05s/it, est. speed input: 27.18 toks/s, output: 24.23 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:32:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_442 (iteration 43) for method prolog_no_fs
+Processing sample logical_deduction_540 (iteration 44) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.74s/it, est. speed input: 27.38 toks/s, output: 24.27 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.74s/it, est. speed input: 27.38 toks/s, output: 24.27 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_540 (iteration 44) for method prolog_no_fs
+Processing sample logical_deduction_521 (iteration 45) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:24<00:00, 24.57s/it, est. speed input: 27.31 toks/s, output: 24.26 toks/s]Processed prompts: 100%|██████████| 1/1 [00:24<00:00, 24.57s/it, est. speed input: 27.31 toks/s, output: 24.26 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_521 (iteration 45) for method prolog_no_fs
+Processing sample logical_deduction_549 (iteration 46) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.48s/it, est. speed input: 48.19 toks/s, output: 24.22 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.48s/it, est. speed input: 48.19 toks/s, output: 24.22 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:4:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:4:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:5:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:5:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:6:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:6:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:7:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:7:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:8:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:8:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+ERROR:    No permission to redefine imported_procedure `lists:nth1/3'
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:12:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:13:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:14:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:15:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:16:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:17:
+Warning:    Singleton variables: [Answer]
+Prolog output: _12066
+Completed sample logical_deduction_549 (iteration 46) for method prolog_no_fs
+Processing sample logical_deduction_432 (iteration 47) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.15s/it, est. speed input: 29.48 toks/s, output: 24.24 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.15s/it, est. speed input: 29.48 toks/s, output: 24.24 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_432 (iteration 47) for method prolog_no_fs
+Processing sample logical_deduction_536 (iteration 48) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.15s/it, est. speed input: 29.53 toks/s, output: 24.29 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.15s/it, est. speed input: 29.53 toks/s, output: 24.29 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error: Caused by: 'solve(Answer)'. Returned: 'error(existence_error(procedure, /(clue7, 1)), context(/(solve, 1), _6646))'.
+Completed sample logical_deduction_536 (iteration 48) for method prolog_no_fs
+Processing sample logical_deduction_417 (iteration 49) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.46s/it, est. speed input: 47.34 toks/s, output: 24.32 toks/s]Processed prompts: 100%|██████████| 1/1 [00:15<00:00, 15.46s/it, est. speed input: 47.34 toks/s, output: 24.32 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:12:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:13:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:14:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:15:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:16:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:17:
+Warning:    Singleton variables: [Answer]
+Prolog output: _1596
+Completed sample logical_deduction_417 (iteration 49) for method prolog_no_fs
+Processing sample logical_deduction_524 (iteration 50) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.82s/it, est. speed input: 74.03 toks/s, output: 24.37 toks/s]Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.82s/it, est. speed input: 74.03 toks/s, output: 24.37 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer,Eve,Rob,Ada,Mel,Eli,Joe]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Solution,Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:13:
+Warning:    Singleton variables: [Answer]
+Prolog output: _7582
+Completed sample logical_deduction_524 (iteration 50) for method prolog_no_fs
+Processing sample logical_deduction_421 (iteration 51) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:29<00:00, 29.94s/it, est. speed input: 24.22 toks/s, output: 24.32 toks/s]Processed prompts: 100%|██████████| 1/1 [00:29<00:00, 29.94s/it, est. speed input: 24.22 toks/s, output: 24.32 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:11:
+Warning:    Singleton variables: [Solution]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_421 (iteration 51) for method prolog_no_fs
+Processing sample logical_deduction_420 (iteration 52) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.75s/it, est. speed input: 62.79 toks/s, output: 24.33 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.75s/it, est. speed input: 62.79 toks/s, output: 24.33 toks/s]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_420 (iteration 52) for method prolog_no_fs
+Processing sample logical_deduction_545 (iteration 53) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.58s/it, est. speed input: 36.83 toks/s, output: 24.31 toks/s]Processed prompts: 100%|██████████| 1/1 [00:19<00:00, 19.58s/it, est. speed input: 36.83 toks/s, output: 24.31 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:4:
+Warning:    Singleton variables: [Solution,Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:5:
+Warning:    Singleton variables: [Solution]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:6:
+Warning:    Singleton variables: [Solution]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:6:
+Warning:    Clauses of second_least_expensive/2 are not together in the source-file
+Warning:    Earlier definition at /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:4
+Warning:    Current predicate: second_most_expensive/2
+Warning:    Use :- discontiguous second_least_expensive/2. to suppress this message
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:8:
+Warning:    Clauses of second_most_expensive/2 are not together in the source-file
+Warning:    Earlier definition at /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:5
+Warning:    Current predicate: second_least_expensive/2
+Warning:    Use :- discontiguous second_most_expensive/2. to suppress this message
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:10:
+Warning:    Clauses of second_least_expensive/2 are not together in the source-file
+Warning:    Earlier definition at /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:4
+Warning:    Current predicate: second_most_expensive/2
+Warning:    Use :- discontiguous second_least_expensive/2. to suppress this message
+Prolog output: PLUMS
+Completed sample logical_deduction_545 (iteration 53) for method prolog_no_fs
+Processing sample logical_deduction_558 (iteration 54) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.55s/it, est. speed input: 85.60 toks/s, output: 24.32 toks/s]Processed prompts: 100%|██████████| 1/1 [00:08<00:00,  8.55s/it, est. speed input: 85.60 toks/s, output: 24.32 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Prolog output: ROBIN
+Completed sample logical_deduction_558 (iteration 54) for method prolog_no_fs
+Processing sample logical_deduction_414 (iteration 55) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [02:15<00:00, 135.40s/it, est. speed input: 5.45 toks/s, output: 24.28 toks/s]Processed prompts: 100%|██████████| 1/1 [02:15<00:00, 135.40s/it, est. speed input: 5.45 toks/s, output: 24.28 toks/s]
+[WARN] Only 1 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+ERROR: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:158:62: Syntax error: Unexpected end of file
+Prolog output: Error: Caused by: 'solve(Answer)'. Returned: 'error(existence_error(procedure, /(choose_option, 2)), context(/(solve, 1), _86))'.
+Completed sample logical_deduction_414 (iteration 55) for method prolog_no_fs
+Processing sample logical_deduction_461 (iteration 56) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.01s/it, est. speed input: 53.23 toks/s, output: 24.26 toks/s]Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.01s/it, est. speed input: 53.23 toks/s, output: 24.26 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Prolog output: [Variable(80), Variable(81), Variable(82), 'red', 'orange', 'purple', 'white', 'green']
+Completed sample logical_deduction_461 (iteration 56) for method prolog_no_fs
+Processing sample logical_deduction_478 (iteration 57) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:28<00:00, 28.01s/it, est. speed input: 26.38 toks/s, output: 24.35 toks/s]Processed prompts: 100%|██████████| 1/1 [00:28<00:00, 28.01s/it, est. speed input: 26.38 toks/s, output: 24.35 toks/s]
+Prolog output: A
+Completed sample logical_deduction_478 (iteration 57) for method prolog_no_fs
+Processing sample logical_deduction_492 (iteration 58) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.86s/it, est. speed input: 52.53 toks/s, output: 24.31 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.86s/it, est. speed input: 52.53 toks/s, output: 24.31 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Answer]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:9:
+Warning:    Singleton variables: [S,Answer]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_492 (iteration 58) for method prolog_no_fs
+Processing sample logical_deduction_428 (iteration 59) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.11s/it, est. speed input: 27.81 toks/s, output: 24.24 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.11s/it, est. speed input: 27.81 toks/s, output: 24.24 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_428 (iteration 59) for method prolog_no_fs
+Processing sample logical_deduction_404 (iteration 60) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.74s/it, est. speed input: 26.89 toks/s, output: 24.27 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.74s/it, est. speed input: 26.89 toks/s, output: 24.27 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_404 (iteration 60) for method prolog_no_fs
+Processing sample logical_deduction_525 (iteration 61) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:10<00:00, 10.82s/it, est. speed input: 67.02 toks/s, output: 24.31 toks/s]Processed prompts: 100%|██████████| 1/1 [00:10<00:00, 10.82s/it, est. speed input: 67.02 toks/s, output: 24.31 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_525 (iteration 61) for method prolog_no_fs
+Processing sample logical_deduction_482 (iteration 62) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:30<00:00, 30.41s/it, est. speed input: 23.88 toks/s, output: 24.34 toks/s]Processed prompts: 100%|██████████| 1/1 [00:30<00:00, 30.41s/it, est. speed input: 23.88 toks/s, output: 24.34 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_482 (iteration 62) for method prolog_no_fs
+Processing sample logical_deduction_553 (iteration 63) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:23<00:00, 23.44s/it, est. speed input: 28.45 toks/s, output: 24.36 toks/s]Processed prompts: 100%|██████████| 1/1 [00:23<00:00, 23.44s/it, est. speed input: 28.45 toks/s, output: 24.36 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_553 (iteration 63) for method prolog_no_fs
+Processing sample logical_deduction_400 (iteration 64) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.67s/it, est. speed input: 28.76 toks/s, output: 24.53 toks/s]Processed prompts: 100%|██████████| 1/1 [00:22<00:00, 22.67s/it, est. speed input: 28.76 toks/s, output: 24.53 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_400 (iteration 64) for method prolog_no_fs
+Processing sample logical_deduction_535 (iteration 65) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.11s/it, est. speed input: 27.16 toks/s, output: 24.55 toks/s]Processed prompts: 100%|██████████| 1/1 [00:26<00:00, 26.11s/it, est. speed input: 27.16 toks/s, output: 24.55 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_535 (iteration 65) for method prolog_no_fs
+Processing sample logical_deduction_538 (iteration 66) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:10<00:00, 10.05s/it, est. speed input: 73.57 toks/s, output: 24.49 toks/s]Processed prompts: 100%|██████████| 1/1 [00:10<00:00, 10.05s/it, est. speed input: 73.57 toks/s, output: 24.49 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Prolog output: RAVEN
+Completed sample logical_deduction_538 (iteration 66) for method prolog_no_fs
+Processing sample logical_deduction_441 (iteration 67) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.96s/it, est. speed input: 52.01 toks/s, output: 24.57 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.96s/it, est. speed input: 52.01 toks/s, output: 24.57 toks/s]
+Prolog output: A
+Completed sample logical_deduction_441 (iteration 67) for method prolog_no_fs
+Processing sample logical_deduction_1112 (iteration 68) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.99s/it, est. speed input: 51.56 toks/s, output: 24.61 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.99s/it, est. speed input: 51.56 toks/s, output: 24.61 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1112 (iteration 68) for method prolog_no_fs
+Processing sample logical_deduction_994 (iteration 69) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.21s/it, est. speed input: 51.19 toks/s, output: 24.74 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.21s/it, est. speed input: 51.19 toks/s, output: 24.74 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_994 (iteration 69) for method prolog_no_fs
+Processing sample logical_deduction_986 (iteration 70) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.26s/it, est. speed input: 50.99 toks/s, output: 24.64 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.26s/it, est. speed input: 50.99 toks/s, output: 24.64 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_986 (iteration 70) for method prolog_no_fs
+Processing sample logical_deduction_1124 (iteration 71) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.29s/it, est. speed input: 51.10 toks/s, output: 24.82 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.29s/it, est. speed input: 51.10 toks/s, output: 24.82 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1124 (iteration 71) for method prolog_no_fs
+Processing sample logical_deduction_1120 (iteration 72) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.09s/it, est. speed input: 47.82 toks/s, output: 24.90 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.09s/it, est. speed input: 47.82 toks/s, output: 24.90 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_1120 (iteration 72) for method prolog_no_fs
+Processing sample logical_deduction_1095 (iteration 73) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.32s/it, est. speed input: 50.50 toks/s, output: 24.92 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.32s/it, est. speed input: 50.50 toks/s, output: 24.92 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1095 (iteration 73) for method prolog_no_fs
+Processing sample logical_deduction_1037 (iteration 74) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.51s/it, est. speed input: 50.20 toks/s, output: 24.94 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.51s/it, est. speed input: 50.20 toks/s, output: 24.94 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1037 (iteration 74) for method prolog_no_fs
+Processing sample logical_deduction_1099 (iteration 75) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.34s/it, est. speed input: 50.88 toks/s, output: 24.87 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.34s/it, est. speed input: 50.88 toks/s, output: 24.87 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error: Caused by: 'solve(Answer)'. Returned: 'error(existence_error(procedure, /(nth2, 3)), context(/(clue2, 1), _46))'.
+Completed sample logical_deduction_1099 (iteration 75) for method prolog_no_fs
+Processing sample logical_deduction_1072 (iteration 76) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.26s/it, est. speed input: 51.39 toks/s, output: 24.80 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.26s/it, est. speed input: 51.39 toks/s, output: 24.80 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1072 (iteration 76) for method prolog_no_fs
+Processing sample logical_deduction_1000 (iteration 77) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.85s/it, est. speed input: 48.88 toks/s, output: 24.91 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.85s/it, est. speed input: 48.88 toks/s, output: 24.91 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1000 (iteration 77) for method prolog_no_fs
+Processing sample logical_deduction_1032 (iteration 78) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.25s/it, est. speed input: 47.86 toks/s, output: 24.91 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.25s/it, est. speed input: 47.86 toks/s, output: 24.91 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1032 (iteration 78) for method prolog_no_fs
+Processing sample logical_deduction_1054 (iteration 79) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.90s/it, est. speed input: 52.75 toks/s, output: 24.95 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.91s/it, est. speed input: 52.75 toks/s, output: 24.95 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1054 (iteration 79) for method prolog_no_fs
+Processing sample logical_deduction_1022 (iteration 80) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.18s/it, est. speed input: 52.07 toks/s, output: 24.88 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.18s/it, est. speed input: 52.07 toks/s, output: 24.88 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1022 (iteration 80) for method prolog_no_fs
+Processing sample logical_deduction_977 (iteration 81) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.29s/it, est. speed input: 43.65 toks/s, output: 24.90 toks/s]Processed prompts: 100%|██████████| 1/1 [00:14<00:00, 14.29s/it, est. speed input: 43.65 toks/s, output: 24.90 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_977 (iteration 81) for method prolog_no_fs
+Processing sample logical_deduction_1049 (iteration 82) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.71s/it, est. speed input: 52.84 toks/s, output: 24.93 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.72s/it, est. speed input: 52.84 toks/s, output: 24.93 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1049 (iteration 82) for method prolog_no_fs
+Processing sample logical_deduction_1125 (iteration 83) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.59s/it, est. speed input: 53.05 toks/s, output: 24.93 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.59s/it, est. speed input: 53.05 toks/s, output: 24.93 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1125 (iteration 83) for method prolog_no_fs
+Processing sample logical_deduction_1127 (iteration 84) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.52s/it, est. speed input: 50.16 toks/s, output: 24.84 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.52s/it, est. speed input: 50.16 toks/s, output: 24.84 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_1127 (iteration 84) for method prolog_no_fs
+Processing sample logical_deduction_1089 (iteration 85) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.91s/it, est. speed input: 60.87 toks/s, output: 24.93 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.91s/it, est. speed input: 60.87 toks/s, output: 24.93 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1089 (iteration 85) for method prolog_no_fs
+Processing sample logical_deduction_1014 (iteration 86) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.80s/it, est. speed input: 49.38 toks/s, output: 24.85 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.80s/it, est. speed input: 49.38 toks/s, output: 24.85 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_1014 (iteration 86) for method prolog_no_fs
+Processing sample logical_deduction_1097 (iteration 87) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.77s/it, est. speed input: 45.47 toks/s, output: 24.91 toks/s]Processed prompts: 100%|██████████| 1/1 [00:13<00:00, 13.77s/it, est. speed input: 45.47 toks/s, output: 24.91 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [Solution]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:7:
+Warning:    Singleton variables: [Answer]
+Prolog output: _14412
+Completed sample logical_deduction_1097 (iteration 87) for method prolog_no_fs
+Processing sample logical_deduction_1121 (iteration 88) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.47s/it, est. speed input: 50.02 toks/s, output: 25.01 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.47s/it, est. speed input: 50.02 toks/s, output: 25.01 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1121 (iteration 88) for method prolog_no_fs
+Processing sample logical_deduction_985 (iteration 89) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.78s/it, est. speed input: 61.85 toks/s, output: 24.94 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.78s/it, est. speed input: 61.85 toks/s, output: 24.94 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_985 (iteration 89) for method prolog_no_fs
+Processing sample logical_deduction_1104 (iteration 90) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.90s/it, est. speed input: 52.78 toks/s, output: 24.96 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.90s/it, est. speed input: 52.78 toks/s, output: 24.96 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1104 (iteration 90) for method prolog_no_fs
+Processing sample logical_deduction_1123 (iteration 91) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.16s/it, est. speed input: 51.42 toks/s, output: 25.09 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.16s/it, est. speed input: 51.42 toks/s, output: 25.09 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1123 (iteration 91) for method prolog_no_fs
+Processing sample logical_deduction_962 (iteration 92) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.87s/it, est. speed input: 53.07 toks/s, output: 24.94 toks/s]Processed prompts: 100%|██████████| 1/1 [00:11<00:00, 11.87s/it, est. speed input: 53.07 toks/s, output: 24.94 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_962 (iteration 92) for method prolog_no_fs
+Processing sample logical_deduction_978 (iteration 93) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.60s/it, est. speed input: 63.05 toks/s, output: 25.01 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.60s/it, est. speed input: 63.05 toks/s, output: 25.01 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_978 (iteration 93) for method prolog_no_fs
+Processing sample logical_deduction_1129 (iteration 94) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.80s/it, est. speed input: 61.44 toks/s, output: 25.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.80s/it, est. speed input: 61.44 toks/s, output: 25.00 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_1129 (iteration 94) for method prolog_no_fs
+Processing sample logical_deduction_1077 (iteration 95) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.97s/it, est. speed input: 48.98 toks/s, output: 25.07 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.97s/it, est. speed input: 48.98 toks/s, output: 25.07 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1077 (iteration 95) for method prolog_no_fs
+Processing sample logical_deduction_1036 (iteration 96) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.72s/it, est. speed input: 62.23 toks/s, output: 24.99 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.72s/it, est. speed input: 62.23 toks/s, output: 24.99 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1036 (iteration 96) for method prolog_no_fs
+Processing sample logical_deduction_993 (iteration 97) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.17s/it, est. speed input: 52.25 toks/s, output: 25.06 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.17s/it, est. speed input: 52.25 toks/s, output: 25.06 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_993 (iteration 97) for method prolog_no_fs
+Processing sample logical_deduction_1061 (iteration 98) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.27s/it, est. speed input: 86.33 toks/s, output: 25.02 toks/s]Processed prompts: 100%|██████████| 1/1 [00:07<00:00,  7.27s/it, est. speed input: 86.33 toks/s, output: 25.02 toks/s]
+[WARN] Only 0 'choose_option' calls found (expected ≥4).
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:8:
+Warning:    Singleton variables: [Answer]
+Prolog output: Error (invalid answer)
+Completed sample logical_deduction_1061 (iteration 98) for method prolog_no_fs
+Processing sample logical_deduction_1027 (iteration 99) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.57s/it, est. speed input: 63.25 toks/s, output: 24.99 toks/s]Processed prompts: 100%|██████████| 1/1 [00:09<00:00,  9.57s/it, est. speed input: 63.25 toks/s, output: 24.99 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1027 (iteration 99) for method prolog_no_fs
+Processing sample logical_deduction_1021 (iteration 100) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.19s/it, est. speed input: 50.95 toks/s, output: 25.11 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.19s/it, est. speed input: 50.95 toks/s, output: 25.11 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1021 (iteration 100) for method prolog_no_fs
+Processing sample logical_deduction_1040 (iteration 101) for method prolog_no_fs
+Generating without LoRA
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.33s/it, est. speed input: 50.61 toks/s, output: 25.06 toks/s]Processed prompts: 100%|██████████| 1/1 [00:12<00:00, 12.33s/it, est. speed input: 50.61 toks/s, output: 25.06 toks/s]
+Warning: /scratch/s5112583/thesis/RL/small/prolog_code/overwritten_code.pl:1:
+Warning:    Singleton variables: [S]
+Prolog output: A
+Completed sample logical_deduction_1040 (iteration 101) for method prolog_no_fs
+Completed method: prolog_no_fs
+Results saved to results_text_files/results_experiment_1.txt
+Dataset composition:
+  3-option problems: 34 (33.3%)
+  5-option problems: 34 (33.3%)
+  7-option problems: 34 (33.3%)
+
+=== OVERALL PERFORMANCE ===
+
+--- prolog_no_fs_answer ---
+Accuracy: 12.75%
+Answer distribution: {'A': 57, 'Error (invalid answer)': 28, 'Prolog Error': 4, 'Error processing sample': 1, 'Error (timeout)': 1, '_3222': 1, '_2328': 1, '_15616': 1, '_12066': 1, '_1596': 1, '_7582': 1, 'PLUMS': 1, 'ROBIN': 1, "[Variable(80), Variable(81), Variable(82), 'red', 'orange', 'purple', 'white', 'green']": 1, 'RAVEN': 1, '_14412': 1}
+
+=== PERFORMANCE BY PROBLEM TYPE ===
+
+## 3-option problems ##
+
+--- prolog_no_fs_answer ---
+Accuracy: 20.59%
+Answer distribution: {'A': 26, 'Error (invalid answer)': 6, 'Prolog Error': 1, '_14412': 1}
+
+## 5-option problems ##
+
+--- prolog_no_fs_answer ---
+Accuracy: 11.76%
+Answer distribution: {'A': 24, 'Error (invalid answer)': 6, 'Prolog Error': 1, 'Error processing sample': 1, 'Error (timeout)': 1, '_3222': 1}
+
+## 7-option problems ##
+
+--- prolog_no_fs_answer ---
+Accuracy: 5.88%
+Answer distribution: {'Error (invalid answer)': 16, 'A': 7, 'Prolog Error': 2, '_2328': 1, '_15616': 1, '_12066': 1, '_1596': 1, '_7582': 1, 'PLUMS': 1, 'ROBIN': 1, "[Variable(80), Variable(81), Variable(82), 'red', 'orange', 'purple', 'white', 'green']": 1, 'RAVEN': 1}
+
+=== RETRY ANALYSIS ===
+Retried cases: 0
+Retry success rate: 0.00%
+Average retries for success: 0.00
+
+=== FIX ANALYSIS ===
+Fixed cases: 0
+Fix success rate: 0.00%
+
+=== BACKUP ANALYSIS ===
+Used-backup cases: 0
+Backup success rate: 0.00%
+
+=== VALID-ONLY (NO ERROR) PERFORMANCE ===
+
+--- prolog_no_fs_answer (valid only) ---
+Accuracy: 22.81%
+Answer distribution: {'A': 57}
+
+###############################################################################
+Hábrók Cluster
+Job 17952368 for user s5112583
+Finished at: Tue Jun 17 09:48:11 CEST 2025
+
+Job details:
+============
+
+Job ID                         : 17952368
+Name                           : exp1_3B_job
+User                           : s5112583
+Partition                      : gpumedium
+Nodes                          : a100gpu3
+Number of Nodes                : 1
+Cores                          : 8
+Number of Tasks                : 1
+State                          : COMPLETED  
+Submit                         : 2025-06-17T08:41:30
+Start                          : 2025-06-17T09:10:02
+End                            : 2025-06-17T09:48:07
+Reserved walltime              : 06:00:00
+Used walltime                  : 00:38:05
+Used CPU time                  : 00:34:07 (Efficiency: 11.20%)
+% User (Computation)           : 98.08%
+% System (I/O)                 :  1.92%
+Total memory reserved          : 62.50G
+Maximum memory used            : 2.07G
+Requested GPUs                 : a100=1
+Allocated GPUs                 : a100=1
+Max GPU utilization            : 29%
+Max GPU memory used            : 23.40G
+Hints and tips      :
+ 1) You requested much more CPU memory than your program used.
+    Please reduce the requested amount of memory.
+ *) For more information on these issues see:
+    https://wiki.hpc.rug.nl/habrok/additional_information/job_hints
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################
