@@ -60,6 +60,13 @@ MODEL_CONFIGS = {
         "load_in_4bit": True,
         "fast_inference": True,
         "gpu_memory_utilization": 0.6
+    },
+    "Qwen/Qwen2.5-Coder-7B-Instruct": {
+        "max_seq_length": 4024,
+        "lora_rank": 32, 
+        "load_in_4bit": True,
+        "fast_inference": True,
+        "gpu_memory_utilization": 0.6
     }
 }
 
@@ -81,6 +88,24 @@ TRAINING_CONFIGS = {
         "output_dir": "outputs",
     },
     "meta-llama/meta-Llama-3.1-8B-Instruct": {
+        "learning_rate": 5e-6, 
+        "adam_beta1": 0.9, 
+        "adam_beta2": 0.99,
+        "weight_decay": 0.1, 
+        "warmup_ratio": 0.1, 
+        "lr_scheduler_type": "cosine",
+        "optim": "paged_adamw_8bit", 
+        "logging_steps": 1, 
+        "per_device_train_batch_size": 4,
+        "gradient_accumulation_steps": 1, 
+        "num_generations": 4, 
+        "max_steps": 250,
+        "save_steps": 250, 
+        "max_grad_norm": 0.1,
+        "report_to": "wandb",
+        "output_dir": "outputs",
+    },
+    "Qwen/Qwen2.5-Coder-7B-Instruct": {
         "learning_rate": 5e-6, 
         "adam_beta1": 0.9, 
         "adam_beta2": 0.99,
@@ -211,7 +236,7 @@ def distribute_dataset(train_json_dataset: list,
         samples_by_type[sample["n_options"]].append(sample)
 
     if get_subset:
-        samples_by_type = {k: v[:170] for k, v in samples_by_type.items() if k in [3, 5, 7]}
+        samples_by_type = {k: v[:5] for k, v in samples_by_type.items() if k in [3, 5, 7]}
 
     # Shuffle and split
     train_dataset, test_dataset = [], []

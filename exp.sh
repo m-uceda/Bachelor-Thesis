@@ -25,6 +25,8 @@ module load CUDA/12.4.0
 
 #python -m venv projectEnvironment
 source projectEnvironment/bin/activate
+#pip install --upgrade pip
+#pip install unsloth[cu124-torch250]==2025.3.8 --no-deps
 #pip install -r requirements.txt
 
 PYTHON_SCRIPT="./experiment.py"
