@@ -1,5 +1,5 @@
 from utils_exp import (
-    setup_ddp, cleanup_ddp,
+    #setup_ddp, cleanup_ddp,
     get_model_tokenizer, download_dataset, 
     get_data, distribute_dataset, print_distribution_stats,
     get_results
@@ -26,11 +26,11 @@ os.environ["CUDA_VISIBLE_DEVICES"] = str(local_rank)
 # Experiment 1: Few-shot Vs Not
 
 def main():
-    setup_ddp()
+    #setup_ddp()
 
     # Load the model and tokenizer
-    model_name = "meta-llama/Llama-3.2-3B-Instruct"
-    #model_name = "meta-llama/meta-Llama-3.1-8B-Instruct"
+    #model_name = "meta-llama/Llama-3.2-3B-Instruct"
+    model_name = "meta-llama/meta-Llama-3.1-8B-Instruct"
     model, tokenizer = get_model_tokenizer(model_name)
 
     # Get and prepare dataset
@@ -38,17 +38,12 @@ def main():
     download_dataset(DEV_JSON_URL, DEV_JSON_FILE)
     train_json_file = "prolog_train_data.json" # Change to name corresponding to the dataset you want to use
     test_json_file = "prolog_test_data.json"
-    cot_train_json_file = "cot_train_data.json"
-    cot_test_json_file = "cot_test_data.json"
     train_json_dataset = get_data(train_json_file, PROLOG_PROMPT, TRAIN_JSON_FILE)
     dev_json_dataset = get_data(test_json_file, PROLOG_PROMPT, DEV_JSON_FILE)
-    cot_train_json_dataset = get_data(cot_train_json_file, COT_PROMPT, TRAIN_JSON_FILE)
-    cot_dev_json_dataset = get_data(cot_test_json_file, COT_PROMPT, DEV_JSON_FILE)
 
     # Do 80-20 split of train and test datasets with equal distribution of question types
-    train_dataset, test_dataset = distribute_dataset(train_json_dataset, dev_json_dataset, get_subset=False)
+    train_dataset, test_dataset = distribute_dataset(train_json_dataset, dev_json_dataset, get_subset=True)
     print_distribution_stats(train_dataset, test_dataset)
-    backup_train_dataset, backup_test_dataset = distribute_dataset(cot_train_json_dataset, cot_dev_json_dataset, get_subset=False)
 
     # Run the evaluation for methods specified and print the results
     methods = ["prolog"] # Options: "direct", "cot", "prolog", "prolog_fix", "prolog_retry", "prolog_backup"
@@ -58,10 +53,10 @@ def main():
     answer_types = ["prolog_answer"]
     experiment_name = "experiment"
     rewards = None #{"prolog": [correctness_reward_func_prolog, letter_reward_func_prolog, prolog_format_reward_func, prolog_error_reward_func]}
-    results = get_results(model, tokenizer, model_name, train_datasets, test_datasets, methods, base_methods, experiment_name, backup=backup_test_dataset, rewards=rewards, grpo=False)
+    results = get_results(model, tokenizer, model_name, train_datasets, test_datasets, methods, base_methods, experiment_name, rewards=rewards, grpo=False)
     summarize_all_methods(results, answer_types)  
 
-    cleanup_ddp()
+    #cleanup_ddp()
 
     return
 

@@ -9,96 +9,29 @@ import signal
 import traceback
 from collections import defaultdict
 from typing import Dict, List, Tuple, Optional, Any
+from pathlib import Path
+from openai import OpenAI, RateLimitError 
+import time
 
-# Environment variables
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
-os.environ["VLLM_USE_V1"] = '0'
+# Read API key from private text file
+with open("key.txt", "r") as f:
+    api_key = f.read().strip()
 
-import torch
-import torch.distributed as dist
-from unsloth import FastLanguageModel, is_bfloat16_supported
-from vllm import SamplingParams
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=api_key,
+)
+
 from pyswip import Prolog, Atom
-from huggingface_hub import login
 from trl import GRPOConfig, GRPOTrainer
 from copy import deepcopy
-
-# Authentication and setup
-login(token="valid_token") # Replace with valid Hugging Face token
-torch.cuda.empty_cache()
-torch.cuda.reset_peak_memory_stats()
-
-# Monkey patch to fix: _get_train_sampler(self, dataset)
-def patched_get_train_sampler(self, dataset):
-    return None  # Default behavior
-
-# ========================================================================================
-# DDP UTILITIES
-# ========================================================================================
-
-def setup_ddp():
-    dist.init_process_group(backend="nccl")
-
-def cleanup_ddp():
-    dist.destroy_process_group()
+import subprocess
+import threading
+import sys
 
 # ========================================================================================
 # MODEL CONFIGURATIONS
 # ========================================================================================
-
-MODEL_CONFIGS = {
-    "meta-llama/Llama-3.2-3B-Instruct": {
-        "max_seq_length": 4024,
-        "lora_rank": 64, 
-        "load_in_4bit": False, # False for LoRA 16bit
-        "fast_inference": True, # Enable vLLM fast inference
-        "gpu_memory_utilization": 0.6
-    },
-    "meta-llama/meta-Llama-3.1-8B-Instruct": {
-        "max_seq_length": 4024,
-        "lora_rank": 32, 
-        "load_in_4bit": True,
-        "fast_inference": True,
-        "gpu_memory_utilization": 0.6
-    }
-}
-
-TRAINING_CONFIGS = {
-    "meta-llama/Llama-3.2-3B-Instruct": {                                     
-        "learning_rate": 5e-6, 
-        "weight_decay": 0.1, 
-        "warmup_ratio": 0.1,
-        "lr_scheduler_type": "cosine", 
-        "optim": "adamw_8bit", 
-        "logging_steps": 1,
-        "per_device_train_batch_size": 4, 
-        "gradient_accumulation_steps": 4,
-        "num_generations": 4, 
-        "max_steps": 500, 
-        "save_steps": 250, 
-        "max_grad_norm": 1.0,
-        "report_to": "wandb",
-        "output_dir": "outputs",
-    },
-    "meta-llama/meta-Llama-3.1-8B-Instruct": {
-        "learning_rate": 5e-6, 
-        "adam_beta1": 0.9, 
-        "adam_beta2": 0.99,
-        "weight_decay": 0.1, 
-        "warmup_ratio": 0.1, 
-        "lr_scheduler_type": "cosine",
-        "optim": "paged_adamw_8bit", 
-        "logging_steps": 1, 
-        "per_device_train_batch_size": 4,
-        "gradient_accumulation_steps": 1, 
-        "num_generations": 4, 
-        "max_steps": 250,
-        "save_steps": 250, 
-        "max_grad_norm": 0.1,
-        "report_to": "wandb",
-        "output_dir": "outputs",
-    }
-}
 
 EXAMPLES_ERRORS = """
 - The logic is not consistent with the problem statement. The objects in the Solution list must be arranged in a fixed order based on the clues provided. For example, if they are being arranged by age, the newest must be at the beginning of the list and the oldest at the end in a consistent way. Moreover, the names stated in the cues must be exactly the same as the ones used throughout the code.
@@ -109,62 +42,30 @@ EXAMPLES_ERRORS = """
 # MODEL AND TOKENIZER UTILITIES
 
 def get_model_tokenizer(model_name: str):
-    config = MODEL_CONFIGS.get(model_name)
-
-    model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name = model_name, 
-        max_seq_length = config["max_seq_length"], 
-        load_in_4bit = config["load_in_4bit"],
-        fast_inference = config["fast_inference"],
-        max_lora_rank = config["lora_rank"],
-        gpu_memory_utilization = config["gpu_memory_utilization"],
-        enforce_eager=True,
-    )
-
-    model = FastLanguageModel.get_peft_model(
-        model,
-        r = config["lora_rank"],
-        target_modules = [
-            "q_proj", "k_proj", "v_proj", "o_proj", 
-            "gate_proj", "up_proj", "down_proj"
-        ], # Remove QKVO if out of memory
-        lora_alpha = config["lora_rank"], 
-        use_gradient_checkpointing = "unsloth", 
-        random_state=3407,
-    )
-
-
-    return model, tokenizer
-
-def cleanup_model(model=None, tokenizer=None):
-    if model: del model
-    if tokenizer: del tokenizer   
-    torch.cuda.empty_cache()
-    gc.collect()
-    torch.cuda.reset_peak_memory_stats()
+    return None, None
 
 # ========================================================================================
 # DATASET UTILITIES
 # ========================================================================================
 
 def download_dataset(dataset_url: str, dataset_file: str) -> str:
-    if not os.path.exists(dataset_file):
+    if not Path(dataset_file).exists():
         r = requests.get(dataset_url)
         r.raise_for_status()
-        with open(dataset_file, "w") as f:
+        with open(dataset_file, "w", encoding="utf-8") as f:
             f.write(r.text)
         return f"Dataset downloaded and saved as '{dataset_file}'."
     return f"Dataset file '{dataset_file}' already exists."
 
 def get_data(file_name: str, prompt: list[dict], dataset_file: str):
-    if os.path.exists(file_name):
-        with open(file_name, "r") as f:
+    if Path(file_name).exists():
+        with open(file_name, "r", encoding="utf-8") as f:
             return json.load(f)
     else:
         return load_dataset_questions(dataset_file, prompt, save_to=file_name)
 
 def load_dataset_questions(dataset_file: str, prompt: list, save_to: str = None) -> list:
-    with open(dataset_file, "r") as f:
+    with open(dataset_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     processed_data = []
@@ -189,14 +90,14 @@ def load_dataset_questions(dataset_file: str, prompt: list, save_to: str = None)
         })
 
     if save_to:
-        with open(save_to, "w") as f:
+        with open(save_to, "w", encoding="utf-8") as f:
             json.dump(processed_data, f, indent=2)
 
     return processed_data
 
-def distribute_dataset(train_json_dataset: list, 
-    dev_json_dataset: list, 
-    train_ratio: float = 0.8, 
+def distribute_dataset(train_json_dataset: list,
+    dev_json_dataset: list,
+    train_ratio: float = 0.8,
     random_seed: int = 42,
     problem_type_ratios: dict = None,
     get_subset: bool = False
@@ -211,7 +112,7 @@ def distribute_dataset(train_json_dataset: list,
         samples_by_type[sample["n_options"]].append(sample)
 
     if get_subset:
-        samples_by_type = {k: v[:170] for k, v in samples_by_type.items() if k in [3, 5, 7]}
+        samples_by_type = {k: v[:1] for k, v in samples_by_type.items() if k in [3, 5, 7]}
 
     # Shuffle and split
     train_dataset, test_dataset = [], []
@@ -260,26 +161,116 @@ def safe_getattr(obj, attr):
         return val
     except Exception as e:
         return f"[error: {e}]"
+    
+class TimeoutException(Exception):
+    pass
+
+def prolog_answer(code_file: Path = None, code: str = None) -> str:
+    """Run Prolog program and get answer with timeout limit (60s)."""
+    final_file_path: Path
+
+    if code_file:
+        final_file_path = code_file
+    elif code:
+        prolog_code_dir = Path("prolog_code")
+        prolog_code_dir.mkdir(parents=True, exist_ok=True)
+        final_file_path = prolog_code_dir / "overwritten_code.pl"
+        with open(final_file_path, "w", encoding="utf-8") as pl_file:
+            pl_file.write(code)
+    else:
+        return "Error: No Prolog code or file provided."
+
+    prolog = Prolog() 
+    
+    # Normalize path for Prolog consult command
+    # Use forward slashes for Prolog paths
+    path_for_prolog_query = str(final_file_path.resolve()).replace("\\", "/") 
+
+    consult_solutions = None # Initialize consult_solutions
+
+    try:
+        consult_command = f"consult('{path_for_prolog_query}')"
+        print(f"Attempting to consult with: {consult_command}") # Debugging line
+        
+        try:
+            # Wrap consult query in try-finally to ensure it's closed
+            consult_solutions = prolog.query(consult_command, catcherrors=True)
+            list(consult_solutions) # Exhaust the generator
+        finally:
+            if consult_solutions is not None:
+                consult_solutions.close() # Always close the consult query
+                consult_solutions = None # Set to None after closing for safety
+
+        query = "solve(Answer)"
+        
+        result_container = {}
+        exception_container = {}
+
+        def run_prolog_query_threaded():
+            solve_solutions = None # Initialize solve_solutions for the finally block
+            try:
+                solve_solutions = prolog.query(query, maxresult=1)
+                result_container['result'] = next(solve_solutions, None)
+            except Exception as e:
+                exception_container['exception'] = e
+            finally:
+                if solve_solutions is not None:
+                    solve_solutions.close() # Always close the solve query
+        
+        # Start the query in a separate thread
+        query_thread = threading.Thread(target=run_prolog_query_threaded)
+        query_thread.start()
+        
+        # Wait for the thread to complete, with a timeout
+        query_thread.join(timeout=60) # 60 seconds timeout
+
+        if query_thread.is_alive():
+            # If the thread is still alive, it means it timed out
+            raise TimeoutException("Prolog query timed out.")
+        
+        if 'exception' in exception_container:
+            raise exception_container['exception']
+
+        result = result_container.get('result')
+
+        if result is None or "Answer" not in result:
+            return "Error (invalid answer)"
+
+        answer = result["Answer"]
+        if isinstance(answer, str):
+            return answer.upper()
+        elif isinstance(answer, Atom):
+            return str(answer).upper()
+        else:
+            return str(answer)
+
+    except TimeoutException as e:
+        return f"Error (timeout): {e}"
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return f"Error: {type(e).__name__}: {str(e)}"
+    finally:
+        pass
 
 # MAIN EXPERIMENT RUNNER
 
-def get_results(model, 
-    tokenizer, 
-    model_name: str, 
-    train_datasets: dict, 
-    test_datasets: dict, 
-    methods: list, 
-    base_methods: dict, 
-    experiment_name: str, 
-    backup: dict = None,
-    rewards: dict = None, 
+def get_results(model,
+    tokenizer,
+    model_name: str,
+    train_datasets: dict,
+    test_datasets: dict,
+    methods: list,
+    base_methods: dict,
+    experiment_name: str,
+    rewards: dict = None,
     grpo: bool = False
     ) -> list:
 
     # Create directories
-    os.makedirs("outputs_" + experiment_name, exist_ok=True)
+    """os.makedirs("outputs_" + experiment_name, exist_ok=True)
     lora_dir = "lora_adapters_" + experiment_name
-    os.makedirs(lora_dir, exist_ok=True)
+    os.makedirs(lora_dir, exist_ok=True)"""
 
     results = []
     for i, method in enumerate(methods):
@@ -291,66 +282,18 @@ def get_results(model,
         }
         temperature = temperature_map.get(method, 0.0)
 
-        sampling_params = SamplingParams(temperature=temperature, top_p=0.95, max_tokens=4024)
-
-        if i == 0:
-            retrain = True
-        else:
-            retrain = False
+        sampling_params = None
 
         print(f"Processing method: {method}")
 
-        if grpo:
-            train_dataset, test_dataset = train_datasets[method], test_datasets[method]
-            rewards_method = rewards[method]
-        else:
-            test_dataset = test_datasets[method]
 
+        test_dataset = test_datasets[method]
         base_method = base_methods[method]
-        lora_path = os.path.join(lora_dir, f"grpo_saved_lora")
-
-        # Fine-tuning if needed
-        if retrain and grpo:
-            print(f"Fine-tuning model for method: {method}")
-            max_prompt_length = 1024
-            max_seq_length = 4024
-
-            config = TRAINING_CONFIGS[model_name].copy()
-            config.pop("unsloth_num_chunks", None)
-            config.pop("n_chunks", None)
-
-            training_args = GRPOConfig(
-                max_prompt_length=max_prompt_length,
-                max_completion_length=max_seq_length - max_prompt_length,
-                **config
-            )
-
-            trainer = GRPOTrainer(
-                model=model, 
-                processing_class=tokenizer, 
-                reward_funcs=rewards_method,
-                args=training_args, 
-                train_dataset=train_dataset
-            )
-
-            trainer._get_train_sampler = patched_get_train_sampler.__get__(trainer, type(trainer))
-
-            print(f"\n\n--------------------------- Training args: {training_args}\n\n")
-            trainer.train()
-
-            print(f"Saving LoRA adapter to {lora_path}")
-            model.save_pretrained(lora_path)
-
-        elif not retrain and grpo:
-            if os.path.exists(lora_path):
-                print(f"Loading previously trained model from {lora_path}")
-                model = model.from_pretrained(lora_path)
-            else:
-                raise FileNotFoundError(f"LoRA adapter not found at {lora_path}")
 
         # Generate results
+        lora_path = ""
         method_results = get_method_results(test_dataset, method, base_method, model, 
-                                          tokenizer, sampling_params, grpo, lora_path, backup)
+                                          tokenizer, sampling_params, grpo, lora_path)
 
         # Merge results
         if not results:
@@ -364,11 +307,6 @@ def get_results(model,
                             f"intermediate_generations": method_results[j].get(f"intermediate_generations"),
                             f"fixed": method_results[j].get(f"fixed"),
                             f"temperature": method_results[j].get(f"temperature")
-                        })
-                    elif method == "prolog_backup":
-                        result.update({
-                            f"used_backup": method_results[j].get(f"used_backup"),
-                            f"intermediate_generations": method_results[j].get(f"intermediate_generations")
                         })
                     elif method == "prolog_fix":
                         result.update({
@@ -390,32 +328,26 @@ def get_results(model,
         for j, result in enumerate(results):
             result["random_answer"] = chr(97 + random.randint(0, test_dataset[j]["n_options"]-1)).upper()
 
-        cleanup_model(model, tokenizer)
+        #cleanup_model(model, tokenizer)
         print(f"Completed method: {method}")
 
 
     write_results_to_file.config_info = {
         "model_name": model_name,
-        "grpo": grpo,
-        "sampling_params": {k: safe_getattr(sampling_params, k) for k in dir(sampling_params) if not k.startswith('_')},
-        "training_config": vars(training_args) if 'training_args' in locals() else {},
-        "model_config": model.config.to_dict() if hasattr(model, "config") else {},
-        "tokenizer_config": tokenizer.init_kwargs,
     }
     write_results_to_file(results, methods, experiment_name)
     return results
 
 # METHOD RESULT PROCESSING
 
-def get_method_results(test_dataset: list, 
-    method: str, 
-    base_method: str, 
-    model, 
-    tokenizer, 
-    sampling_params, 
-    grpo: bool = False, 
-    lora_path: str = None,
-    backup: dict = None
+def get_method_results(test_dataset: list,
+    method: str,
+    base_method: str,
+    model,
+    tokenizer,
+    temperature,
+    grpo: bool = False,
+    lora_path: str = None
     ) -> list:
 
     method_results = []
@@ -426,21 +358,17 @@ def get_method_results(test_dataset: list,
         try:
             # Generate based on method
             if base_method == "cot":
-                output, result = generate_cot(sample, model, tokenizer, sampling_params, grpo, lora_path)
+                output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
             elif base_method == "prolog":
                 try:
                     if method == "prolog_retry":
-                        output, code, result, n_retries, intermediates, fixed, temperature = generate_prolog_retry(sample, model, tokenizer, sampling_params)
+                        output, code, result, n_retries, intermediates, fixed, temperature = generate_prolog_retry(sample, model, tokenizer, temperature)
                         print(f"Prolog retry output: {output}, code: {code}, result: {result}")
                     elif method == "prolog_fix":
-                        output, code, result, intermediates, fixed = generate_prolog_fix(sample, model, tokenizer, sampling_params)
+                        output, code, result, intermediates, fixed = generate_prolog_fix(sample, model, tokenizer, temperature)
                         print(f"Prolog fix output: {output}, code: {code}, result: {result}")
-                    elif method == "prolog_backup":
-                        backup_sample = backup[j]
-                        output, code, result, intermediates, used_backup = generate_prolog_backup(sample, model, tokenizer, sampling_params, backup_sample)
-                        print(f"Prolog backup output: {output}, code: {code}, result: {result}")
                     else:
-                        output, code, result = generate_prolog(sample, model, tokenizer, sampling_params, grpo, lora_path)
+                        output, code, result = generate_prolog(sample, model, tokenizer, temperature, grpo, lora_path)
                         print(f"Prolog output: {result}")
                 except Exception as e:
                     print(f"generate_prolog failed for sample {sample['id']}: {e}")
@@ -448,7 +376,7 @@ def get_method_results(test_dataset: list,
                     raise 
 
             elif base_method == "direct":    
-                output, result = generate_direct_answer(sample, model, tokenizer, sampling_params)                    
+                output, result = generate_direct_answer(sample, model, tokenizer, temperature)                    
 
 
             # Build result dict
@@ -456,7 +384,6 @@ def get_method_results(test_dataset: list,
                 "question_index": sample["id"], "question": sample["sample_prompt"]["content"],
                 "expected_answer": sample["answer"], f"{method}_output": output,
                 f"{method}_answer": result, "options": sample["n_options"],
-                "prompt": sample.get("prompt"), "tokenized_prompt": tokenizer.apply_chat_template(sample["prompt"], tokenize=False, add_generation_prompt=True)
             }            
 
             if base_method == "prolog":
@@ -466,9 +393,6 @@ def get_method_results(test_dataset: list,
                     result_dict["fixed"] = fixed
                     result_dict["temperature"] = temperature
                     result_dict["n_retries"] = n_retries
-                elif method == "prolog_backup":
-                    result_dict["used_backup"] = used_backup
-                    result_dict["intermediate_generations"] = intermediates
                 elif method == "prolog_fix":
                     result_dict["intermediate_generations"] = intermediates
                     result_dict["fixed"] = fixed
@@ -489,15 +413,17 @@ def get_method_results(test_dataset: list,
     return method_results
 
 def write_results_to_file(results: list, methods: list, experiment_name: str):
-    if not os.path.exists("results_text_files"):
-        os.makedirs("results_text_files")
+    results_dir = Path("results_text_files")
+    results_dir.mkdir(parents=True, exist_ok=True)
 
-    file_name = f"results_text_files/results_{experiment_name}.txt"
+    file_name = results_dir / f"results_{experiment_name}.txt"
     with open(file_name, "w", encoding='utf-8') as f:
         f.write(f"TEST RESULTS {experiment_name.upper()}\n{'='*80}\n\n")
 
         for result in results:
             f.write(f"SAMPLE {result['question_index']}\n{'-'*80}\n")
+
+
 
             if 'prompt' in result:
                 f.write(f"PROMPT MESSAGE STRUCTURE (role/content pairs):\n")
@@ -505,15 +431,15 @@ def write_results_to_file(results: list, methods: list, experiment_name: str):
                     f.write(f"[{msg['role']}] {msg['content']}\n")
                 f.write("\n")
 
-            # Tokenized text (if available)
+
             if 'tokenized_prompt' in result:
                 f.write(f"TOKENIZED PROMPT:\n{result['tokenized_prompt']}\n\n")
 
-            #f.write(f"Question (raw prompt text):\n{result['question']}\n\n")
+
             f.write(f"Expected Answer: {result['expected_answer']}\n")
             f.write(f"Number of Options: {result.get('options', '?')}\n\n")
 
-            # Generation details per method
+
             for method in methods:
                 f.write(f"--- METHOD: {method.upper()} ---\n")
 
@@ -535,16 +461,13 @@ def write_results_to_file(results: list, methods: list, experiment_name: str):
             if "fixed" in result:
                 f.write(f"Fixed: {result['fixed']}\n")
 
-            if "used_backup" in result:
-                f.write(f"Used backup: {result['used_backup']}\n")
-
             if "temperature" in result:
                 f.write(f"Temperature: {result['temperature']}\n")
 
             f.write(f"Random Answer: {result.get('random_answer', '?')}\n")
             f.write(f"{'='*80}\n\n")
 
-        # Add final block with config info
+
         f.write("\nEXPERIMENT CONFIGURATION\n")
         f.write(f"{'-'*80}\n")
         if hasattr(write_results_to_file, "config_info"):
@@ -552,81 +475,80 @@ def write_results_to_file(results: list, methods: list, experiment_name: str):
             for key, val in config.items():
                 f.write(f"{key}: {val}\n")
         else:
-            f.write("No configuration provided.\n")
+            f.write("No configuration metadata provided.\n")
 
     print(f"Results saved to {file_name}")
 
 # GENERATION METHODS
 
-def generate(model, tokenizer, prompt, sampling_params, use_lora : bool = False, lora_path : str = None):
-    text = tokenizer.apply_chat_template(prompt, tokenize=False, add_generation_prompt=True)
-    if use_lora and lora_path and os.path.exists(lora_path):
-        print(f"Using LoRA from {lora_path} for generation")
-        return model.fast_generate(text, sampling_params=sampling_params, 
-                                lora_request=model.load_lora(lora_path))[0].outputs[0].text
-    else:
-        print("Generating without LoRA")
-        return model.fast_generate(text, sampling_params=sampling_params,
-                                lora_request=None)[0].outputs[0].text
+def generate(model, tokenizer, prompt, temperature, use_lora: bool = False, lora_path: str = None, max_retries: int = 5, initial_delay: int = 5):
+    """
+    Generates text using the specified model with a retry mechanism for rate limits.
 
-def generate_prolog(sample: dict, model, tokenizer, sampling_params, use_lora: bool = False, lora_path: str = None) -> tuple:
-    os.makedirs("prolog_code", exist_ok=True)
+    Args:
+        model (str): The model to use for generation.
+        tokenizer: The tokenizer associated with the model (though not directly used in the API call here).
+        prompt (list): A list of message dictionaries.
+        temperature (float): The sampling temperature.
+        use_lora (bool): Whether to use LoRA (not directly used in the API call here).
+        lora_path (str): Path to the LoRA model (not directly used in the API call here).
+        max_retries (int): Maximum number of times to retry on a rate limit error.
+        initial_delay (int): Initial delay in seconds before retrying. This delay will increase exponentially.
 
-    output = generate(model, tokenizer, sample["prompt"], sampling_params, use_lora, lora_path)
+    Returns:
+        str: The generated text content.
+    """
+    retries = 0
+    delay = initial_delay
+
+    while retries < max_retries:
+        try:
+            completion = client.chat.completions.create(
+                extra_headers={},
+                extra_body={},
+                model="meta-llama/llama-3.2-3b-instruct:free",
+                #model="meta-llama/llama-3.1-8b-instruct:free",
+                messages=prompt,
+                temperature=temperature
+            )
+            return completion.choices[0].message.content
+        except RateLimitError as e:
+            retries += 1
+            print(f"Rate limit exceeded. Retrying in {delay} seconds... (Attempt {retries}/{max_retries})")
+            time.sleep(delay)
+            delay *= 2 # Exponential backoff
+        except Exception as e:
+            # Catch other potential errors that are not rate limit related
+            print(f"An unexpected error occurred: {e}")
+            raise # Re-raise the exception if it's not a rate limit error
+    
+    print(f"Failed to generate after {max_retries} retries due to rate limits.")
+    return None
+
+def generate_prolog(sample: dict, model, tokenizer, temperature, use_lora: bool = False, lora_path: str = None) -> tuple:
+    prolog_code_dir = Path("prolog_code")
+    prolog_code_dir.mkdir(parents=True, exist_ok=True)
+
+    output = generate(model, tokenizer, sample["prompt"], temperature, use_lora, lora_path)
 
     prolog_code, warn = extract_prolog(output)
     if prolog_code:
-        prolog_filename = "prolog_code/overwritten_code.pl"
-        with open(prolog_filename, "w") as pl_file:
+        prolog_filename = prolog_code_dir / "overwritten_code.pl"
+        with open(prolog_filename, "w", encoding="utf-8") as pl_file:
             pl_file.write(prolog_code)
+
         prolog_result = prolog_answer(code_file=prolog_filename)
     else:
         prolog_result = f"No valid Prolog code generated. {warn}"
 
     return output, prolog_code, prolog_result
 
-def generate_prolog_backup(sample: dict, model, tokenizer, sampling_params, backup_sample) -> tuple:
-    used_backup = False
-    intermediates = []
-    output, prolog_code, prolog_result = "", "", ""
-
-    try:
-        output, prolog_code, prolog_result = generate_prolog(sample, model, tokenizer, sampling_params)
-        intermediates.append(str(output))
-
-        if prolog_result in "ABCDEFG":
-            print(f"RESULT {prolog_result} IS {'CORRECT' if prolog_result == sample['answer'] else 'INCORRECT'}")
-            return output, prolog_code, prolog_result, intermediates, used_backup
-
-        print(f"RESULT '{prolog_result}' IS NOT A LETTER")
-        print(f"OUTPUT BEFORE BACKUP:\n{output}\n\nCODE BEFORE BACKUP:\n {prolog_code}")
-
-    except Exception as e:
-        print(f"An error occurred during execution: {str(e)}")
-        import traceback
-        traceback.print_exc()
-
-    # Use cot as bakcup
-    output, result = generate_cot(backup_sample, model, tokenizer, sampling_params)
-    used_backup = True    
-    print(f"New response:\n{output}\nNew result:\n{result}")
-
-    if result in "ABCDEFG":
-        print(f"NEW RESULT {result} IS VALID")
-        print("and correct" if result == sample["answer"] else "but incorrect")
-    else:
-        print(f"NEW RESULT {result} IS NOT VALID")
-    
-    intermediates.append(str(output))
-
-    return output, prolog_code, result, intermediates, used_backup
-
-def generate_prolog_fix(sample: dict, model, tokenizer, sampling_params) -> tuple:
+def generate_prolog_fix(sample: dict, model, tokenizer, temperature) -> tuple:
     intermediates = []
     fixed = 0
 
     try:
-        output, prolog_code, prolog_result = generate_prolog(sample, model, tokenizer, sampling_params)
+        output, prolog_code, prolog_result = generate_prolog(sample, model, tokenizer, temperature)
 
         if prolog_result in "ABCDEFG":
             print(f"RESULT {prolog_result} IS {'CORRECT' if prolog_result == sample['answer'] else 'INCORRECT'}")
@@ -641,8 +563,8 @@ def generate_prolog_fix(sample: dict, model, tokenizer, sampling_params) -> tupl
         import traceback
         traceback.print_exc()
 
-    # Retry loop
-    new_output, new_result, new_code = fix_prolog(prolog_result, prolog_code, sample, model, tokenizer, sampling_params)    
+    new_output, new_code, new_result = fix_prolog(prolog_result, prolog_code, sample, model, tokenizer, temperature)
+
     intermediates.append(str(new_output))
 
     if new_result in "ABCDEFG":
@@ -656,21 +578,19 @@ def generate_prolog_fix(sample: dict, model, tokenizer, sampling_params) -> tupl
     else:
         fixed = 1
         print(f"NEW RESULT {new_result} IS NOT VALID")
-    
-    
+
+
     return new_output, new_code, new_result, intermediates, fixed
 
-def generate_prolog_retry(sample: dict, model, tokenizer, sampling_params) -> tuple:
+def generate_prolog_retry(sample: dict, model, tokenizer, temperature) -> tuple:
     i = 0
     intermediates = []
     fixed = False
 
-    local_sampling_params = deepcopy(sampling_params)
     temperature = 0.0
-    local_sampling_params.temperature = temperature
 
     try:
-        output, prolog_code, prolog_result = generate_prolog(sample, model, tokenizer, sampling_params)
+        output, prolog_code, prolog_result = generate_prolog(sample, model, tokenizer, temperature)
         intermediates.append(str(output))
 
         if prolog_result in "ABCDEFG":
@@ -685,16 +605,13 @@ def generate_prolog_retry(sample: dict, model, tokenizer, sampling_params) -> tu
         import traceback
         traceback.print_exc()
 
-    # Retry loop
-
     while i < 10:
         temperature += 0.1
-        local_sampling_params.temperature = temperature
         print(f"\nRetrying '{i}' with temperature {temperature}...")
-        new_output, new_code, new_result = generate_prolog(sample, model, tokenizer, local_sampling_params)
+        new_output, new_code, new_result = generate_prolog(sample, model, tokenizer, temperature)
 
         print(f"REGENERATED {i} New response:\n{new_output}\nNew result:\n{new_result}")
-        # inside retry loop:
+
         intermediates.append(str(new_output))
 
         if new_result in "ABCDEFG":
@@ -712,8 +629,9 @@ def generate_prolog_retry(sample: dict, model, tokenizer, sampling_params) -> tu
 
     return new_output, new_code, new_result, i, intermediates, fixed, temperature
 
-def fix_prolog(error_txt: str, wrong_output: str, sample: dict, model, tokenizer, sampling_params) -> tuple:
-    os.makedirs("fix_prolog_code", exist_ok=True)
+def fix_prolog(error_txt: str, wrong_output: str, sample: dict, model, tokenizer, temperature) -> tuple:
+    fix_prolog_code_dir = Path("fix_prolog_code")
+    fix_prolog_code_dir.mkdir(parents=True, exist_ok=True)
 
     sample_prompt = sample["sample_prompt"]["content"]
     prompt_parts = [
@@ -725,16 +643,16 @@ def fix_prolog(error_txt: str, wrong_output: str, sample: dict, model, tokenizer
     ]
 
     error_prompt = [
-        {"role": "system", "content": "You are a Prolog program fixer. Given a logical deduction problem with a context and multiple choice options, there is a Prolog program that contains some mistake(s). Your job is to use the solver's error message as feedback and examples of the most common errors to generate a correct version of the code. Generate the solution as a valid Prolog program starting with 'A:\n' followed by `solve(Answer) :-` and having the program enclosed in triple backticks labeled `prolog`."},
+        {"role": "system", "content": "You are a Prolog program fixer. Given a logical deduction problem with a context and multiple choice options, there is a Prolog program that contains some mistake(s). Your job is to use the solver's error message as feedback and examples of the most common errors to generate a correct version of the code. Generate the solution as a valid Prolog program starting with 'A:\n' followed by solve(Answer) :- and having the program enclosed in triple backticks labeled prolog."},
         {"role": "user", "content": "\n".join(prompt_parts)}
     ]
 
-    output = generate(model, tokenizer, error_prompt, sampling_params)
+    output = generate(model, tokenizer, error_prompt, temperature)
     prolog_code, warn = extract_prolog(output)
 
     if prolog_code:
-        prolog_filename = f"fix_prolog_code/{sample['id']}_code.pl"
-        with open(prolog_filename, "w") as pl_file:
+        prolog_filename = fix_prolog_code_dir / f"{sample['id']}_code.pl"
+        with open(prolog_filename, "w", encoding="utf-8") as pl_file:
             pl_file.write(prolog_code)
         print(f"Saved Prolog code to {prolog_filename}")
         prolog_result = prolog_answer(code_file=prolog_filename)
@@ -743,24 +661,24 @@ def fix_prolog(error_txt: str, wrong_output: str, sample: dict, model, tokenizer
 
     return output, prolog_result, prolog_code
 
-def generate_cot(sample: dict, model, tokenizer, sampling_params, use_lora: bool = False, lora_path: str = None) -> tuple:
-    output = generate(model, tokenizer, sample["prompt"], sampling_params, use_lora, lora_path)
+def generate_cot(sample: dict, model, tokenizer, temperature, use_lora: bool = False, lora_path: str = None) -> tuple:
+    output = generate(model, tokenizer, sample["prompt"], temperature, use_lora, lora_path)
     answer = extract_letter_from_cot(output)
     return output, answer
 
-def generate_direct_answer(sample: dict, model, tokenizer, sampling_params) -> tuple:
+def generate_direct_answer(sample: dict, model, tokenizer, temperature) -> tuple:
     string = sample['sample_prompt']['content']
     direct_prompt = [
         {"role": "system", "content": "You are a logical deduction assistant. Please provide the letter of the correct answer (e.g., A, B, C)."},
         {"role": "user", "content": f"{string}\n\n Type 'Answer: ' followed by the letter of the correct answer."}
     ]
 
-    output = generate(model, tokenizer, direct_prompt, sampling_params)
+    output = generate(model, tokenizer, direct_prompt, temperature)
     return output, extract_letter_from_cot(output)
 
 # Text extraction utilities
 def extract_letter_from_cot(cot_text: str) -> str:
-    """Extract answer letter from cot response"""
+    """Extract answer letter from chain-of-thought response"""
     patterns = [
         r'(?:answer|the answer)[\s]*(?:is|:)[\s]*[\(\[]?([A-G])[\)\]]?',
         r'(?:So|Thus|Therefore|Hence)[\s]*(?:the answer is|the correct answer is)[\s]*[\(\[]?([A-G])[\)\]]?',
@@ -776,21 +694,16 @@ def extract_letter_from_cot(cot_text: str) -> str:
     return "No answer extracted from output"
 
 def extract_prolog(response_text: str) -> str:
-    """Extract Prolog code from response."""
+    """Extract Prolog code from LM response, with logging for failures."""
     warn = ""
-    if "```prolog" in response_text:
-        try:
-            prolog_code = response_text.split("```prolog")[1].split("```")[0].strip()
-        except IndexError:
-            warn = "[WARN] Detected ```prolog but failed to extract code block."
-            print(warn)
-            return "", None
+    match = re.search(r'```prolog\s*\n*(.*?)\n*\s*```', response_text, re.DOTALL)
+    if match:
+        prolog_code = match.group(1).strip()
     else:
-        warn = "[WARN] No ```prolog code block found in output."
+        warn = "[WARN] No prolog code block (```prolog...```) found in output."
         print(warn)
         return "", None
 
-    # Find starting point (solve function)
     solve_match = re.search(r"solve\s*\(\s*[A-Za-z_]+\s*\)\s*:-", prolog_code)
     if not solve_match:
         warn = "[WARN] No 'solve(...) :-' clause found in Prolog code."
@@ -798,7 +711,7 @@ def extract_prolog(response_text: str) -> str:
     else:
         prolog_code = prolog_code[solve_match.start():]
 
-    # Check choose_option count
+
     choose_option_count = len(re.findall(r"choose_option\s*\(", prolog_code))
     if choose_option_count < 4:
         print(f"[WARN] Only {choose_option_count} 'choose_option' calls found (expected ≥4).")
@@ -811,44 +724,3 @@ class TimeoutException(Exception):
 
 def timeout_handler(signum, frame):
     raise TimeoutException()
-
-def prolog_answer(code_file: str = None, code: str = None) -> str:
-    """Run Prolog program and get answer"""
-    prolog = Prolog()
-
-    try:
-        if not code_file:
-            code_file = "prolog_code.pl"
-            with open(code_file, "w") as pl_file:
-                pl_file.write(code)
-
-        prolog.consult(code_file)
-
-        query = "solve(Answer)"
-        signal.signal(signal.SIGALRM, timeout_handler)
-        signal.alarm(60)  # 5 second timeout (changed to 60)
-
-        solutions = prolog.query(query, maxresult=1)
-        result = next(solutions, None)
-        signal.alarm(0)
-
-        if result is None or "Answer" not in result:
-            return "Error (invalid answer)"
-
-        answer = result["Answer"]
-        if isinstance(answer, str):
-            return answer.upper()
-        elif isinstance(answer, Atom):
-            return str(answer).upper()
-        else:
-            return str(answer)
-
-    except TimeoutException:
-        return "Error (timeout)"
-    except Exception as e:
-        return f"Error: {str(e)}"
-    finally:
-        try:
-            solutions.close()
-        except:
-            pass
