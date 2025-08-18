@@ -1,0 +1,52 @@
+Completed method: prolog
+Results saved to results_text_files\results_experiment.txt
+Dataset composition:
+  3-option problems: 60 (20.0%)
+  5-option problems: 100 (33.3%)
+  7-option problems: 140 (46.7%)
+
+=== OVERALL PERFORMANCE ===
+
+--- prolog_answer ---
+Accuracy: 79.00%
+Answer distribution: {'B': 59, 'A': 55, 'C': 43, 'D': 36, 'E': 30, 'No valid Prolog code generated. None': 19, 'G': 17, 'F': 12, 'Error (invalid answer)': 7, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(4, 1)), _156)'.": 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(6, 1)), _194)'.": 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(existence_error(procedure, /(clue6, 1)), context(/(solve, 1), _176))'.": 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(4, 1)), _7302)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(4, 1)), _168)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(5, 1)), _156)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(instantiation_error, context(:(system, /(is, 2)), _138))'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _204)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _190)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(_190, 1)), _180)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, is(_186, _188)), _176)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _202)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(instantiation_error, context(:(system, /(=:=, 2)), _154))'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(6, 1)), _186)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, length([Atom('791557'), Atom('795397'), Atom('783749'), Atom('783621'), Atom('789125'), Atom('789253'), Atom('783365')])), _194)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(6, 1)), _198)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _184)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(instantiation_error, context(:(system, /(is, 2)), _146))'.": 1, 'Error processing sample': 1}
+
+=== PERFORMANCE BY PROBLEM TYPE ===
+
+## 3-option problems ##
+
+--- prolog_answer ---
+Accuracy: 95.00%
+Answer distribution: {'C': 21, 'B': 19, 'A': 18, 'Error (invalid answer)': 1, 'No valid Prolog code generated. None': 1}
+
+## 5-option problems ##
+
+--- prolog_answer ---
+Accuracy: 85.00%
+Answer distribution: {'B': 20, 'A': 19, 'E': 18, 'D': 18, 'C': 13, 'No valid Prolog code generated. None': 5, 'Error (invalid answer)': 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(4, 1)), _156)'.": 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(4, 1)), _7302)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(4, 1)), _168)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(5, 1)), _156)'.": 1}
+
+## 7-option problems ##
+
+--- prolog_answer ---
+Accuracy: 67.86%
+Answer distribution: {'B': 20, 'A': 18, 'D': 18, 'G': 17, 'No valid Prolog code generated. None': 13, 'E': 12, 'F': 12, 'C': 9, 'Error (invalid answer)': 4, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(6, 1)), _194)'.": 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(existence_error(procedure, /(clue6, 1)), context(/(solve, 1), _176))'.": 2, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(instantiation_error, context(:(system, /(is, 2)), _138))'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _204)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _190)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(_190, 1)), _180)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, is(_186, _188)), _176)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _202)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(instantiation_error, context(:(system, /(=:=, 2)), _154))'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(6, 1)), _186)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, length([Atom('791557'), Atom('795397'), Atom('783749'), Atom('783621'), Atom('789125'), Atom('789253'), Atom('783365')])), _194)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(6, 1)), _198)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(type_error(integer, -(7, 1)), _184)'.": 1, "Error: PrologError: Caused by: 'solve(Answer)'. Returned: 'error(instantiation_error, context(:(system, /(is, 2)), _146))'.": 1, 'Error processing sample': 1}
+
+=== RETRY ANALYSIS ===
+Retried cases: 0
+Retry success rate: 0.00%
+Average retries for success: 0.00
+
+=== FIX ANALYSIS ===
+Fixed cases: 0
+Fix success rate: 0.00%
+
+=== BACKUP ANALYSIS ===
+Used-backup cases: 0
+Backup success rate: 0.00%
+
+=== VALID-ONLY (NO ERROR) PERFORMANCE ===
+
+--- prolog_answer (valid only) ---
+Accuracy: 94.05%
+Answer distribution: {'B': 59, 'A': 55, 'C': 43, 'D': 36, 'E': 30, 'G': 17, 'F': 12}
+WARNING: Failed to stop Prolog threads. Not reclaming memory.

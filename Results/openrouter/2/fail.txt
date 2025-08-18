@@ -1,0 +1,508 @@
+Processing sample logical_deduction_165 (iteration 131) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_165 (iteration 131) for method cot
+Processing sample logical_deduction_562 (iteration 132) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_562 (iteration 132) for method cot
+Processing sample logical_deduction_856 (iteration 133) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_856 (iteration 133) for method cot
+Processing sample logical_deduction_195 (iteration 134) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_195 (iteration 134) for method cot
+Processing sample logical_deduction_836 (iteration 135) for method cot
+Completed sample logical_deduction_836 (iteration 135) for method cot
+Processing sample logical_deduction_916 (iteration 136) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_916 (iteration 136) for method cot
+Processing sample logical_deduction_853 (iteration 137) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Completed sample logical_deduction_853 (iteration 137) for method cot
+Processing sample logical_deduction_724 (iteration 138) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_724 (iteration 138) for method cot
+Processing sample logical_deduction_112 (iteration 139) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_112 (iteration 139) for method cot
+Processing sample logical_deduction_943 (iteration 140) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Completed sample logical_deduction_943 (iteration 140) for method cot
+Processing sample logical_deduction_148 (iteration 141) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_148 (iteration 141) for method cot
+Processing sample logical_deduction_536 (iteration 142) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Completed sample logical_deduction_536 (iteration 142) for method cot
+Processing sample logical_deduction_867 (iteration 143) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_867 (iteration 143) for method cot
+Processing sample logical_deduction_524 (iteration 144) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_524 (iteration 144) for method cot
+Processing sample logical_deduction_655 (iteration 145) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Completed sample logical_deduction_655 (iteration 145) for method cot
+Processing sample logical_deduction_110 (iteration 146) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_110 (iteration 146) for method cot
+Processing sample logical_deduction_451 (iteration 147) for method cot
+Completed sample logical_deduction_451 (iteration 147) for method cot
+Processing sample logical_deduction_875 (iteration 148) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_875 (iteration 148) for method cot
+Processing sample logical_deduction_930 (iteration 149) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Completed sample logical_deduction_930 (iteration 149) for method cot
+Processing sample logical_deduction_580 (iteration 150) for method cot
+Completed sample logical_deduction_580 (iteration 150) for method cot
+Processing sample logical_deduction_624 (iteration 151) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_624 (iteration 151) for method cot
+Processing sample logical_deduction_835 (iteration 152) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_835 (iteration 152) for method cot
+Processing sample logical_deduction_509 (iteration 153) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_509 (iteration 153) for method cot
+Processing sample logical_deduction_405 (iteration 154) for method cot
+Completed sample logical_deduction_405 (iteration 154) for method cot
+Processing sample logical_deduction_551 (iteration 155) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Completed sample logical_deduction_551 (iteration 155) for method cot
+Processing sample logical_deduction_649 (iteration 156) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Completed sample logical_deduction_649 (iteration 156) for method cot
+Processing sample logical_deduction_809 (iteration 157) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_809 (iteration 157) for method cot
+Processing sample logical_deduction_906 (iteration 158) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_906 (iteration 158) for method cot
+Processing sample logical_deduction_793 (iteration 159) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_793 (iteration 159) for method cot
+Processing sample logical_deduction_599 (iteration 160) for method cot
+Completed sample logical_deduction_599 (iteration 160) for method cot
+Processing sample logical_deduction_129 (iteration 161) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_129 (iteration 161) for method cot
+Processing sample logical_deduction_824 (iteration 162) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_824 (iteration 162) for method cot
+Processing sample logical_deduction_866 (iteration 163) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_866 (iteration 163) for method cot
+Processing sample logical_deduction_474 (iteration 164) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_474 (iteration 164) for method cot
+Processing sample logical_deduction_886 (iteration 165) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Completed sample logical_deduction_886 (iteration 165) for method cot
+Processing sample logical_deduction_650 (iteration 166) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_650 (iteration 166) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_447 (iteration 167) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_447 (iteration 167) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_425 (iteration 168) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_425 (iteration 168) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_550 (iteration 169) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_550 (iteration 169) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_603 (iteration 170) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_603 (iteration 170) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_630 (iteration 171) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_630 (iteration 171) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_717 (iteration 172) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_717 (iteration 172) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_640 (iteration 173) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_640 (iteration 173) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_495 (iteration 174) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_495 (iteration 174) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_743 (iteration 175) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_743 (iteration 175) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_174 (iteration 176) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_174 (iteration 176) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_927 (iteration 177) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_927 (iteration 177) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_690 (iteration 178) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_690 (iteration 178) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_486 (iteration 179) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Rate limit exceeded. Retrying in 80 seconds... (Attempt 5/5)
+Failed to generate after 5 retries due to rate limits.
+Error processing sample logical_deduction_486 (iteration 179) for method cot: expected string or bytes-like object, got 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 667, in generate_cot
+    answer = extract_letter_from_cot(output)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 692, in extract_letter_from_cot
+    match = re.search(pattern, cot_text, re.IGNORECASE)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 176, in search
+    return _compile(pattern, flags).search(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'NoneType'
+Processing sample logical_deduction_573 (iteration 180) for method cot
+Rate limit exceeded. Retrying in 5 seconds... (Attempt 1/5)
+Rate limit exceeded. Retrying in 10 seconds... (Attempt 2/5)
+Rate limit exceeded. Retrying in 20 seconds... (Attempt 3/5)
+Rate limit exceeded. Retrying in 40 seconds... (Attempt 4/5)
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 506, in generate
+    completion = client.chat.completions.create(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\uceda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: limit_rpm/meta-llama/llama-3.1-405b-instruct/6387f18b-3757-4aba-86c5-07f436c279cc. High demand for meta-llama/llama-3.1-405b-instruct:free on OpenRouter - limited to 1 requests per minute. Please retry shortly.', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '1', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1755511500000'}, 'provider_name': None}}, 'user_id': 'user_2v8WDfjPIaCZL93hEii2DcdyLi0'}     
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\experiment.py", line 64, in <module>
+    main()
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\experiment.py", line 56, in main
+    results = get_results(model, tokenizer, model_name, train_datasets, test_datasets, methods, base_methods, experiment_name, rewards=rewards, grpo=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 295, in get_results
+    method_results = get_method_results(test_dataset, method, base_method, model,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 361, in get_method_results
+    output, result = generate_cot(sample, model, tokenizer, temperature, grpo, lora_path)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 666, in generate_cot
+    output = generate(model, tokenizer, sample["prompt"], temperature, use_lora, lora_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\uceda\Documents\uni\project\Bachelor-Thesis\utils_exp.py", line 519, in generate
+    time.sleep(delay)
+KeyboardInterrupt
