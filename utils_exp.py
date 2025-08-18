@@ -506,8 +506,9 @@ def generate(model, tokenizer, prompt, temperature, use_lora: bool = False, lora
             completion = client.chat.completions.create(
                 extra_headers={},
                 extra_body={},
-                model="meta-llama/llama-3.2-3b-instruct:free",
+                #model="meta-llama/llama-3.2-3b-instruct:free",
                 #model="meta-llama/llama-3.1-8b-instruct:free",
+                model="meta-llama/llama-3.1-405b-instruct:free",
                 messages=prompt,
                 temperature=temperature
             )
