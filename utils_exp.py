@@ -23,8 +23,11 @@ from huggingface_hub import login
 from trl import GRPOConfig, GRPOTrainer
 from copy import deepcopy
 
+with open("hf_key.txt", "r") as f:
+    hf_key = f.read().strip()
+
 # Authentication and setup
-login(token="valid_token") # Replace with valid Hugging Face token
+login(token=hf_key) # Replace with valid Hugging Face token
 torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()
 
