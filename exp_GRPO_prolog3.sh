@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#SBATCH --job-name=exp_job
-#SBATCH --output=logs/exp_output_%j.out
-#SBATCH --time=3:00:00
+#SBATCH --job-name=exp_GRPO_prolog3_job
+#SBATCH --output=logs/exp_GRPO_prolog3_output_%j.out
+#SBATCH --time=30:00:00
 #SBATCH --partition=gpushort
 #SBATCH --account=users
 #SBATCH --mem=64000
@@ -29,7 +29,7 @@ source projectEnvironment/bin/activate
 #pip install unsloth[cu124-torch250]==2025.3.8 --no-deps
 #pip install -r requirements.txt
 
-PYTHON_SCRIPT="./experiment.py"
+PYTHON_SCRIPT="./exp_GRPO_prolog3.py"
 
 export RANK=0
 export WORLD_SIZE=1

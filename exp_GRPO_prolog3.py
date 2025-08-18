@@ -43,7 +43,7 @@ def main():
     dev_json_dataset = get_data(test_json_file, PROLOG_PROMPT, DEV_JSON_FILE)
 
     # Do 80-20 split of train and test datasets with equal distribution of question types
-    train_dataset, test_dataset = distribute_dataset(train_json_dataset, dev_json_dataset, get_subset=True)
+    train_dataset, test_dataset = distribute_dataset(train_json_dataset, dev_json_dataset, get_subset=False)
     print_distribution_stats(train_dataset, test_dataset)
 
     # Run the evaluation for methods specified and print the results
@@ -52,9 +52,9 @@ def main():
     test_datasets = {"prolog": test_dataset}
     base_methods = {"prolog": "prolog"}
     answer_types = ["prolog_answer"]
-    experiment_name = "experiment"
-    rewards = None #{"prolog": [correctness_reward_func_prolog, letter_reward_func_prolog, prolog_format_reward_func, prolog_error_reward_func]}
-    results = get_results(model, tokenizer, model_name, train_datasets, test_datasets, methods, base_methods, experiment_name, backup=None, rewards=rewards, grpo=False)
+    experiment_name = "exp_GRPO_prolog3"
+    rewards = {"prolog": [correctness_reward_func_prolog, letter_reward_func_prolog, prolog_format_reward_func, prolog_error_reward_func]}
+    results = get_results(model, tokenizer, model_name, train_datasets, test_datasets, methods, base_methods, experiment_name, backup=None, rewards=rewards, grpo=True)
     summarize_all_methods(results, answer_types)  
 
     cleanup_ddp()

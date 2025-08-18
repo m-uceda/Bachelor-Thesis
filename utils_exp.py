@@ -118,7 +118,8 @@ TRAINING_CONFIGS = {
         "gradient_accumulation_steps": 1, 
         "num_generations": 4, 
         "max_steps": 250,
-        "save_steps": 250, 
+        #"save_steps": 250,
+        "save_strategy": "no", # disable Trainer's auto-saves to avoid Error while serializing: I/O error: Argument list too long (os error 7)
         "max_grad_norm": 0.1,
         "report_to": "wandb",
         "output_dir": "outputs",
@@ -364,7 +365,9 @@ def get_results(model,
             trainer.train()
 
             print(f"Saving LoRA adapter to {lora_path}")
-            model.save_pretrained(lora_path)
+            # Save only the PEFT adapter, avoid safetensors to bypass the serialize issue
+            model.save_pretrained(lora_path, safe_serialization=False)
+
 
         elif not retrain and grpo:
             if os.path.exists(lora_path):
